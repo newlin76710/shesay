@@ -12,8 +12,11 @@ npm run dev
 ## Build
 
 ```bash
+npm install
 npm run build
 ```
+
+> If you pulled new changes after the dependency upgrade, run `npm install` again before building.
 
 ## Deploy to Vercel
 
