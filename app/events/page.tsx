@@ -84,7 +84,7 @@ export default function EventsPage() {
               目前最適合的做法是把活動資訊整理到官方 LINE 或之後的活動列表頁，讓使用者可以直接查看報名資訊與場次內容。
             </p>
             <a
-              href="https://line.me/"
+              href="https://lin.ee/UtgCipOq"
               className="mt-6 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
             >
               查看活動與報名方式

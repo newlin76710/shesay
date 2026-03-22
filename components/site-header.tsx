@@ -20,7 +20,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <a
-          href="https://line.me/"
+          href="https://lin.ee/UtgCipOq"
           className="rounded-full bg-rose px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
         >
           加入官方 LINE

@@ -12,7 +12,7 @@ export function CtaBanner() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
-              href="https://line.me/"
+              href="https://lin.ee/UtgCipOq"
               className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-plum transition hover:bg-sand"
             >
               加入官方 LINE

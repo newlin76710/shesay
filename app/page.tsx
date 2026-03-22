@@ -73,7 +73,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="https://line.me/"
+                  href="https://lin.ee/UtgCipOq"
                   className="rounded-full bg-rose px-7 py-4 text-center text-sm font-semibold text-white transition hover:opacity-90"
                 >
                   加入官方 LINE

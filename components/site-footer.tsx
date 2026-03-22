@@ -12,7 +12,7 @@ export function SiteFooter() {
           <a href="/about" className="transition hover:text-rose">關於 SheSay</a>
           <a href="/events" className="transition hover:text-rose">聯誼活動</a>
           <a href="/consult" className="transition hover:text-rose">戀愛諮詢</a>
-          <a href="https://line.me/" className="transition hover:text-rose">官方 LINE</a>
+          <a href="https://lin.ee/UtgCipOq" className="transition hover:text-rose">官方 LINE</a>
         </div>
       </div>
     </footer>

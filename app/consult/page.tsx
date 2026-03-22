@@ -59,7 +59,7 @@ export default function ConsultPage() {
                 這不只是處理眼前的戀愛困擾，也是在整理妳未來進入關係的方式。
               </p>
               <a
-                href="https://line.me/"
+                href="https://lin.ee/UtgCipOq"
                 className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:bg-sand"
               >
                 立即預約諮詢
