@@ -236,8 +236,13 @@ export default function HomePage() {
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose">Love code</p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 戀愛數字密碼諮詢</h2>
-                <p className="mt-5 text-base leading-8 text-plum/75">
-                  從生日就知道妳的戀愛煩惱。可以預約娜米老師諮詢、使用戀愛數字計算工具，或從節目中免費解析，幫妳看出寫在生日密碼中的戀愛藍圖。
+                <p className="mt-5 whitespace-pre-line text-base leading-8 text-plum/75">
+                  從生日就知道妳的戀愛煩惱。
+                  了解戀愛數字密碼 ⬇️
+                  妳可以⋯⋯
+                  預約娜米老師諮詢、
+                  戀愛數字計算機自己算、
+                  【戀愛會社】節目上免費解析。
                 </p>
                 <a
                   href="/consult"
