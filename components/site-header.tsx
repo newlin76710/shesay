@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const navItems = [
   { href: '/', label: '女生話題' },
-  { href: '/events', label: '聯誼派對' },
+  { href: '/events', label: '聯誼派對活動' },
   { href: '/consult', label: '戀愛諮詢' },
   { href: '/about', label: '關於我們' },
 ];
