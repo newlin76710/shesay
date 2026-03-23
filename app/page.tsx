@@ -1,57 +1,78 @@
 import Image from 'next/image';
 import { CtaBanner } from '@/components/cta-banner';
-import { SectionTitle } from '@/components/section-title';
+import { ImageCard } from '@/components/image-card';
 import { SiteShell } from '@/components/site-shell';
 import { TestimonialCard } from '@/components/testimonial-card';
 
-const benefits = [
+const steps = [
   {
-    title: '更懂女性需求的配對方式',
-    description: '不是盲目配對，而是從條件、互動感受與關係期待出發，幫助妳更有效率地認識適合的對象。',
+    title: '加入官方 LINE',
+    description: '加入 SHESAY 的官方 LINE，LINE ID：@shesay。',
   },
   {
-    title: '真實互動，比滑手機更自然',
-    description: '透過實體活動與輕鬆的社交情境，降低尷尬與無效聊天，讓認識更有溫度。',
+    title: '填寫個人資料',
+    description: '依照流程填寫個人資料，等候戀愛小秘書進行資料驗證與配對數據分析。',
   },
   {
-    title: '從認識到關係經營都有人陪妳',
-    description: '不只辦活動，也提供戀愛諮詢與方向整理，幫妳少走冤枉路。',
+    title: '參加單身聯誼活動',
+    description: '資料驗證完成後開始安排約會，參加各種有趣的單身聯誼活動。',
   },
 ];
 
-const steps = [
+const eventCards = [
   {
-    number: '01',
-    title: '加入官方 LINE',
-    description: '從官方 LINE 開始，快速了解服務內容、活動資訊與加入方式。',
+    src: '/images/original/shesay.com/wp-content/uploads/2024/01/賞花打卡區大合照01.jpg',
+    alt: '浪漫活動',
+    title: '浪漫石門放風箏',
+    description: '遠離繁囂，讓參與者在自然環境中放鬆相識，也替自己創造新的可能。',
   },
   {
-    number: '02',
-    title: '填寫資料與驗證',
-    description: '完成基本資料，讓 SheSay 更了解妳的需求、個性與期待。',
+    src: '/images/original/shesay.com/wp-content/uploads/2023/11/20231014手作蘋果塔-768x475-1.jpeg',
+    alt: '手作活動',
+    title: '手作交流活動',
+    description: '在一起做事、一起聊天的過程裡，讓認識更自然發生。',
   },
   {
-    number: '03',
-    title: '參加活動或預約諮詢',
-    description: '依照妳的狀況安排適合的聯誼活動，或從戀愛諮詢開始整理方向。',
+    src: '/images/original/shesay.com/wp-content/uploads/2023/11/DSC00020_副本.jpeg',
+    alt: '活動現場',
+    title: '多元主題派對',
+    description: '讓社交回到真實互動，而不是只停在螢幕上的配對。',
   },
 ];
 
 const testimonials = [
   {
-    quote: '活動氣氛很自然，不會有壓力，真的比較容易認識適合的人。',
+    quote: '我當時正好在找一個可以改變人生的機會，參加娜米主辦的聯誼活動後，真的遇見了現在的對象。',
     name: '盧小姐',
     meta: '27歲｜護理師',
   },
   {
-    quote: '原本對感情很迷惘，參加後反而更知道自己適合什麼樣的人。',
+    quote: '我曾在尋找愛情的路上徬徨，參加活動後反而更知道自己適合什麼樣的人。',
     name: '趙小姐',
     meta: '30歲｜芳療老師',
   },
   {
-    quote: '不只是聯誼，更像有人真正陪妳整理感情方向。',
+    quote: '每一場活動都讓我們有機會在輕鬆愉快的氛圍中相識，也讓我真的找到了一生的伴侶。',
     name: '廖小姐',
     meta: '26歲｜甜點店製作助手',
+  },
+];
+
+const consultTestimonials = [
+  {
+    quote: '我對自己有了更深的認識，學會更有效地與人溝通，也解開了多年的疑惑。',
+    name: 'Becky',
+    meta: '位格9｜流年 +17/8',
+  },
+  {
+    quote: '透過諮詢，我發現了自己內在的力量，也更知道如何處理感情問題。',
+    name: 'Airel',
+    meta: '靈魂等級 1',
+  },
+  {
+    quote: '娜米的戀愛數字密碼讓我更了解自己，也讓我在感情中更得心應手。',
+    name: 'Lina',
+    meta: '感情主修 6',
   },
 ];
 
@@ -59,18 +80,23 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        <section className="mx-auto flex min-h-[calc(100vh-76px)] max-w-6xl items-center px-6 py-20 sm:px-8 lg:px-10">
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <section className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:px-10 lg:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <span className="inline-flex rounded-full bg-rose/10 px-4 py-2 text-sm font-semibold text-rose">
-                為單身女性打造的聯誼與戀愛成長平台
-              </span>
-              <h1 className="mt-7 text-5xl font-semibold tracking-tight text-plum md:text-6xl md:leading-[1.05]">
-                SheSay 幫妳認識更適合的對象
+              <h1 className="text-5xl font-semibold tracking-tight text-plum md:text-6xl md:leading-[1.05]">
+                SheSay 幫妳安排心動約會
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-plum/75 md:text-xl">
-                從聯誼活動、配對分析到戀愛諮詢，SheSay 陪妳更自然地遇見對的人，也更懂自己真正想要的關係。
-              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl bg-white p-5 shadow-soft">
+                  <p className="text-lg font-semibold text-plum">高度客製化服務</p>
+                </div>
+                <div className="rounded-2xl bg-white p-5 shadow-soft">
+                  <p className="text-lg font-semibold text-plum">大數據配對分析</p>
+                </div>
+                <div className="rounded-2xl bg-white p-5 shadow-soft">
+                  <p className="text-lg font-semibold text-plum">豐富的單身聯誼活動</p>
+                </div>
+              </div>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="https://lin.ee/UtgCipOq"
@@ -85,77 +111,29 @@ export default function HomePage() {
                   查看聯誼活動
                 </a>
               </div>
-              <div className="mt-10 grid gap-5 sm:grid-cols-3">
-                <div>
-                  <p className="text-3xl font-semibold text-plum">1 對 1</p>
-                  <p className="mt-2 text-sm leading-6 text-plum/65">戀愛諮詢與方向整理</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-semibold text-plum">實體活動</p>
-                  <p className="mt-2 text-sm leading-6 text-plum/65">輕鬆認識，不只是線上聊天</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-semibold text-plum">女性視角</p>
-                  <p className="mt-2 text-sm leading-6 text-plum/65">更理解需求，也更貼近妳的處境</p>
-                </div>
-              </div>
             </div>
-
-            <div className="grid gap-6">
-              <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] shadow-soft">
-                <Image
-                  src="/images/original/shesay.com/wp-content/uploads/2023/11/banner-1024x683-1.jpeg"
-                  alt="SheSay 首頁主視覺"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-plum/45 via-plum/5 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">A softer way to connect</p>
-                  <p className="mt-3 max-w-md text-2xl font-semibold leading-snug">不是盲目配對，而是幫妳更靠近真正適合的人。</p>
-                </div>
-              </div>
-              <div className="rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-soft backdrop-blur">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose">What SheSay offers</p>
-                <ul className="mt-6 space-y-4 text-base leading-7 text-plum/80">
-                  <li>• 單身聯誼活動：在自然情境中認識新朋友</li>
-                  <li>• 戀愛諮詢：看懂自己的感情模式與選擇</li>
-                  <li>• 女性內容：戀愛、生活、魅力成長一次整合</li>
-                </ul>
-              </div>
+            <div className="relative min-h-[460px] overflow-hidden rounded-[2rem] shadow-soft">
+              <Image
+                src="/images/original/shesay.com/wp-content/uploads/2023/11/banner-1024x683-1.jpeg"
+                alt="SheSay 幫妳安排心動約會"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                priority
+              />
             </div>
-          </div>
-        </section>
-
-        <section id="services" className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <SectionTitle
-            eyebrow="Why SheSay"
-            title="比起制式配對，SheSay 更在意相處感與真實互動"
-            description="把妳的需求、生活狀態與關係期待放進考量，讓每一次認識都更有意義。"
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {benefits.map((item) => (
-              <article key={item.title} className="rounded-3xl border border-white/70 bg-white p-7 shadow-soft">
-                <h3 className="text-xl font-semibold text-plum">{item.title}</h3>
-                <p className="mt-4 text-base leading-7 text-plum/75">{item.description}</p>
-              </article>
-            ))}
           </div>
         </section>
 
         <section className="bg-white/70 py-16 lg:py-24">
           <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
-            <SectionTitle
-              eyebrow="3 steps"
-              title="3 步驟，開始妳的認識旅程"
-              description="流程保持簡單，妳不用自己硬撐著摸索。"
-              center
-            />
+            <div className="text-center">
+              <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">只要 3 步驟，輕鬆認識異性</h2>
+            </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {steps.map((step) => (
-                <article key={step.number} className="rounded-3xl bg-blush p-8 shadow-soft">
-                  <p className="text-sm font-semibold tracking-[0.25em] text-rose">{step.number}</p>
+              {steps.map((step, index) => (
+                <article key={step.title} className="rounded-3xl bg-white p-8 shadow-soft">
+                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-rose">0{index + 1}</p>
                   <h3 className="mt-4 text-xl font-semibold text-plum">{step.title}</h3>
                   <p className="mt-4 text-base leading-7 text-plum/75">{step.description}</p>
                 </article>
@@ -164,47 +142,22 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 sm:px-8 lg:grid-cols-2 lg:px-10 lg:py-24">
-          <article className="overflow-hidden rounded-[2rem] bg-plum text-white shadow-soft">
-            <div className="relative min-h-[260px]">
-              <Image
-                src="/images/original/shesay.com/wp-content/uploads/2024/01/賞花打卡區大合照01.jpg"
-                alt="SheSay 活動照片"
-                fill
-                className="object-cover opacity-80"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="p-8 md:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Events</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">真實見面，才有真正的心動</h2>
-              <p className="mt-5 text-base leading-8 text-white/75">
-                SheSay 提供多元單身聯誼活動，讓妳在自然、輕鬆的情境中認識新朋友。少一點制式流程，多一點真正的互動。
-              </p>
-              <a
-                href="/events"
-                className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:bg-sand"
-              >
-                查看近期活動
-              </a>
-            </div>
-          </article>
-
-          <article id="consult" className="overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-soft">
-            <div className="relative min-h-[260px]">
+        <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+            <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-soft">
               <Image
                 src="/images/original/shesay.com/wp-content/uploads/2023/10/戀愛會社-小秘書-娜米-1.jpg"
-                alt="SheSay 戀愛諮詢照片"
+                alt="現在就預約跟娜米諮詢吧"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 45vw"
               />
             </div>
-            <div className="p-8 md:p-10">
+            <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose">Consulting</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum">戀愛卡關時，讓懂妳的人陪妳看清楚</h2>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">現在就預約跟娜米諮詢吧</h2>
               <p className="mt-5 text-base leading-8 text-plum/75">
-                不只是認識新對象。當妳在關係裡感到迷惘、總遇到相似的問題，SheSay 的戀愛諮詢能幫妳整理感情模式、擇偶方向與下一步。
+                從單身原因、互動困擾到戀愛方向，透過一對一諮詢、戀愛數字密碼與診斷分析，幫妳看懂自己，整理出更清楚的下一步。
               </p>
               <a
                 href="/consult"
@@ -213,38 +166,98 @@ export default function HomePage() {
                 了解戀愛諮詢
               </a>
             </div>
-          </article>
+          </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <SectionTitle
-            eyebrow="Testimonials"
-            title="她們在 SheSay 找到新的可能"
-            description="首頁只放最短、最有力的感受，先讓人願意相信，再決定往下看。"
-            center
-          />
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 懂妳會愛的單身聯誼</h2>
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-plum/75">
+              多元有趣單身派對活動，豐富妳的社交生活，讓妳快速、精準找到適合的對象。
+            </p>
+          </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((item) => (
-              <TestimonialCard key={item.name} {...item} />
+            {eventCards.map((item) => (
+              <ImageCard key={item.src} {...item} />
             ))}
           </div>
         </section>
 
         <section className="bg-white/70 py-16 lg:py-24">
           <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
-            <SectionTitle
-              eyebrow="Content"
-              title="給女生的戀愛與生活靈感"
-              description="把女生話題、生活靈感與戀愛成長內容整合在一起，讓 SheSay 不只是聯誼平台，也是一個陪妳變得更有魅力的地方。"
-            />
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="/about" className="rounded-full border border-plum/15 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:text-rose">
-                了解品牌理念
-              </a>
-              <a href="/consult" className="rounded-full border border-plum/15 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:text-rose">
-                看戀愛諮詢
+            <div className="text-center">
+              <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">會員活動心得</h2>
+            </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {testimonials.map((item) => (
+                <TestimonialCard key={item.name} {...item} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose">Girls talk</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 女生的事女生說</h2>
+              <p className="mt-5 text-base leading-8 text-plum/75">好看、好吃、好玩，訊息不漏接。從女生話題、生活靈感到戀愛內容，一起陪妳把生活過得更有魅力。</p>
+              <a
+                href="/about"
+                className="mt-8 inline-flex rounded-full border border-plum/15 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:text-rose"
+              >
+                看更多內容
               </a>
             </div>
+            <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-soft">
+              <Image
+                src="/images/original/shesay.com/wp-content/uploads/2023/10/活動、品牌-scaled.jpg"
+                alt="SheSay 女生的事女生說"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white/70 py-16 lg:py-24">
+          <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+              <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-soft">
+                <Image
+                  src="/images/original/shesay.com/wp-content/uploads/2023/10/SheSay-戀愛數字密碼-banner-1-2048x758.jpg"
+                  alt="SheSay 戀愛數字密碼諮詢"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose">Love code</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 戀愛數字密碼諮詢</h2>
+                <p className="mt-5 text-base leading-8 text-plum/75">
+                  從生日就知道妳的戀愛煩惱。可以預約娜米老師諮詢、使用戀愛數字計算工具，或從節目中免費解析，幫妳看出寫在生日密碼中的戀愛藍圖。
+                </p>
+                <a
+                  href="/consult"
+                  className="mt-8 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+                >
+                  了解戀愛數字密碼
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 戀愛密碼諮詢見證</h2>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {consultTestimonials.map((item) => (
+              <TestimonialCard key={item.name} {...item} />
+            ))}
           </div>
         </section>
 

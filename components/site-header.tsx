@@ -1,20 +1,29 @@
+import Image from 'next/image';
+
 const navItems = [
-  { href: '/', label: '首頁' },
-  { href: '/about', label: '關於 SheSay' },
-  { href: '/events', label: '聯誼活動' },
+  { href: '/', label: '女生話題' },
+  { href: '/events', label: '聯誼派對' },
   { href: '/consult', label: '戀愛諮詢' },
+  { href: '/about', label: '關於我們' },
 ];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-white/70 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
-        <a href="/" className="text-lg font-semibold tracking-tight text-plum">
-          SheSay
+    <header className="sticky top-0 z-30 border-b border-[#f1d9df] bg-white/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-8 lg:px-10">
+        <a href="/" className="relative block h-10 w-[132px] shrink-0 sm:h-12 sm:w-[158px]">
+          <Image
+            src="/images/original/shesay.com/wp-content/uploads/2025/05/shesay-logo-01.png"
+            alt="SheSay"
+            fill
+            className="object-contain object-left"
+            sizes="158px"
+            priority
+          />
         </a>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm font-medium text-plum/75 transition hover:text-rose">
+            <a key={item.href} href={item.href} className="text-sm font-medium text-plum/80 transition hover:text-rose">
               {item.label}
             </a>
           ))}
