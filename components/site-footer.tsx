@@ -20,7 +20,6 @@ export function SiteFooter() {
             <a href="/party" className="transition hover:text-white">聯誼派對</a>
             <a href="/consult" className="transition hover:text-white">戀愛諮詢</a>
             <a href="https://lin.ee/UtgCipOq" className="transition hover:text-white">官方 LINE</a>
-            <a href="/article/" className="transition hover:text-white">網友投稿</a>
           </div>
         </div>
         <p className="mt-10 border-t border-white/10 pt-6 text-xs text-white/40">
