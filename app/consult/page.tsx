@@ -214,7 +214,7 @@ export default function ConsultPage() {
               <p className="mt-4 text-sm leading-7 text-[#54595F]">在娜米的預約時段中選擇您可以通話的時間</p>
               <div className="mt-3 text-center">
                 <a
-                  href="https://datenami.tw/dt09Jqbr7"
+                  href="https://lin.ee/o4lCgwJ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex rounded-full border px-6 py-2.5 text-sm font-semibold transition"

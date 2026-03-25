@@ -58,17 +58,6 @@ const events = [
   },
 ];
 
-const girlTopics = [
-  { label: '她說 最好吃', href: '/blog/category/food/' },
-  { label: '她想 去旅遊', href: '/blog/category/travel/' },
-  { label: '她有 美美臉', href: '/blog/category/cosmetics/' },
-  { label: '她穿 美時尚', href: '/blog/category/fashion/' },
-  { label: '她的 健康法', href: '/blog/category/healthy/' },
-  { label: '她都 輕鬆瘦', href: '/blog/category/fitness/' },
-  { label: '她的 戀愛腦', href: '/blog/category/love/' },
-  { label: '她要 去約會', href: '/blog/category/meetup/' },
-  { label: '她求 戀愛運', href: '/blog/category/destiny/' },
-];
 
 const testimonials = [
   {
@@ -113,11 +102,11 @@ const consultTestimonials = [
 ];
 
 const products = [
-  { name: '給妳好氣色', sub: 'ExB群' },
-  { name: '好身材好纖暢', sub: '纖暢果凍' },
-  { name: '提升戀愛魅力', sub: '玻尿酸' },
-  { name: '美麗又聰慧', sub: 'Omega3魚油' },
-  { name: '給妳好面子', sub: '膠原蛋白' },
+  { name: '給妳好氣色', sub: 'ExB群', img: '/images/products/product-exb.jpg' },
+  { name: '好身材好纖暢', sub: '纖暢果凍', img: '/images/products/product-jelly.jpg' },
+  { name: '提升戀愛魅力', sub: '玻尿酸', img: '/images/products/product-hyaluronic.jpg' },
+  { name: '美麗又聰慧', sub: 'Omega3魚油', img: '/images/products/product-omega3.jpg' },
+  { name: '給妳好面子', sub: '膠原蛋白', img: '/images/products/product-collagen.jpg' },
 ];
 
 export default function HomePage() {
@@ -232,25 +221,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 女生話題 */}
-        <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <div className="text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 女生的事女生說</h2>
-            <p className="mt-4 text-base leading-8 text-plum/75">好看、好吃、好玩 訊息不漏接</p>
-          </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
-            {girlTopics.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="flex items-center justify-between rounded-2xl border border-plum/10 bg-white px-6 py-4 shadow-soft transition hover:border-rose/30 hover:text-rose"
-              >
-                <span className="text-sm font-semibold text-plum group-hover:text-rose">{item.label}</span>
-                <span className="text-xs text-rose">看文章 »</span>
-              </a>
-            ))}
-          </div>
-        </section>
 
         {/* 戀愛數字密碼 */}
         <section className="bg-white/70 py-16 lg:py-24">
@@ -301,11 +271,16 @@ export default function HomePage() {
               <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 提升戀愛魅力值</h2>
               <p className="mt-4 text-base text-plum/75">戀愛產品推薦</p>
             </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3 md:grid-cols-5">
+            <div className="mt-10 grid gap-6 sm:grid-cols-3 md:grid-cols-5">
               {products.map((item) => (
-                <div key={item.name} className="rounded-2xl bg-white p-6 text-center shadow-soft">
-                  <p className="text-sm font-semibold text-plum">{item.name}</p>
-                  <p className="mt-2 text-xs text-plum/60">{item.sub}</p>
+                <div key={item.name} className="overflow-hidden rounded-2xl bg-white shadow-soft">
+                  <div className="relative aspect-square w-full overflow-hidden">
+                    <Image src={item.img} alt={item.name} fill className="object-cover" sizes="(max-width: 640px) 33vw, 20vw" />
+                  </div>
+                  <div className="p-4 text-center">
+                    <p className="text-sm font-semibold text-plum">{item.name}</p>
+                    <p className="mt-1 text-xs text-plum/60">{item.sub}</p>
+                  </div>
                 </div>
               ))}
             </div>
