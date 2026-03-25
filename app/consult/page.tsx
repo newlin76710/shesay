@@ -93,7 +93,7 @@ export default function ConsultPage() {
         <div className="border-b border-plum/10 bg-white">
           <div className="mx-auto flex max-w-6xl gap-6 px-6 py-3 sm:px-8 lg:px-10">
             <a href="https://lin.ee/UtgCipOq" className="text-sm font-medium text-plum/70 transition hover:text-rose">一對一諮詢</a>
-            <a href="https://datenami.tw/dt09keayb" className="text-sm font-medium text-plum/70 transition hover:text-rose">戀愛會社節目</a>
+            <a href="https://lin.ee/o4lCgwJ" className="text-sm font-medium text-plum/70 transition hover:text-rose">戀愛會社節目</a>
           </div>
         </div>
 

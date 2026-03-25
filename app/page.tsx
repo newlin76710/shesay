@@ -269,7 +269,7 @@ export default function HomePage() {
                   <a href="https://datenami.tw/dt09brRrq" className="inline-flex rounded-full border border-plum/20 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
                     免費速測妳的戀愛數字
                   </a>
-                  <a href="https://datenami.tw/dt09keayb" className="inline-flex rounded-full border border-plum/20 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
+                  <a href="https://lin.ee/o4lCgwJ" className="inline-flex rounded-full border border-plum/20 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
                     參加戀愛諮詢節目
                   </a>
                 </div>

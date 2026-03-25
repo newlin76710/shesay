@@ -132,7 +132,7 @@ export default function PodcastPage() {
           </div>
           <div className="mt-10 text-center">
             <a
-              href="https://datenami.tw/dt09keayb"
+              href="https://lin.ee/o4lCgwJ"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex rounded-full bg-rose px-8 py-4 text-sm font-semibold text-white transition hover:opacity-90"
@@ -153,7 +153,7 @@ export default function PodcastPage() {
               {episodes.map((ep) => (
                 <a
                   key={ep.title}
-                  href="https://datenami.tw/dt09keayb"
+                  href="https://lin.ee/o4lCgwJ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group overflow-hidden rounded-2xl bg-white shadow-soft"
@@ -202,7 +202,7 @@ export default function PodcastPage() {
               </p>
             </div>
             <form
-              action="https://datenami.tw/dt09keayb"
+              action="https://lin.ee/o4lCgwJ"
               method="get"
               target="_blank"
               className="mt-10 space-y-6"
@@ -253,7 +253,7 @@ export default function PodcastPage() {
               <h3 className="text-lg font-semibold text-plum">收聽戀愛會社 Podcast</h3>
               <p className="mt-3 text-sm leading-6 text-plum/70">訂閱節目，每集免費收聽戀愛數字密碼解析。</p>
               <a
-                href="https://datenami.tw/dt09keayb"
+                href="https://lin.ee/o4lCgwJ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
@@ -298,7 +298,7 @@ export default function PodcastPage() {
               更有趣的是，節目還會用彩虹數字來解構愛情，每個數字都代表著不同的戀愛密碼。透過這些數字，你可以更了解彼此之間的互動方式，是療癒關係、曖昧關係，還是其他形式的關係。《戀愛會社》不僅僅是一個 Podcast 節目，它是一個幫助你瞭解自己、增強愛情勇氣和力量的平台。
             </p>
             <a
-              href="https://datenami.tw/dt09keayb"
+              href="https://lin.ee/o4lCgwJ"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:bg-sand"
