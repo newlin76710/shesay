@@ -237,7 +237,7 @@ export default function HomePage() {
                   解讀生命密碼 展開戀愛藍圖
                 </p>
                 <div className="mt-6 flex flex-col gap-3">
-                  <a href="https://datenami.tw/dt09N6FMu" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
+                  <a href="https://lin.ee/o4lCgwJ" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
                     馬上預約戀愛數字諮詢
                   </a>
                   <a href="https://datenami.tw/dt09brRrq" className="inline-flex rounded-full border border-plum/20 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">

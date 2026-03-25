@@ -49,7 +49,7 @@ const brands = [
   },
   {
     name: '戀愛小秘書娜米',
-    url: 'https://datenami.tw/dt09N6FMu',
+    url: 'https://lin.ee/o4lCgwJ',
     tag: '線上諮詢 | 戀愛 | 配對',
     stat: '一對一個人化戀愛諮詢',
     desc: '由第二代經營者娜米主持，提供一對一線上戀愛諮詢服務。透過彩虹數字解析每位個案的戀愛特質，協助找到適合的對象與互動方式。',
@@ -165,7 +165,7 @@ export default function AboutPage() {
                 ))}
               </div>
               <a
-                href="https://datenami.tw/dt09N6FMu"
+                href="https://lin.ee/o4lCgwJ"
                 className="mt-8 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
               >
                 預約娜米諮詢
