@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const slides = [
-  { src: '/images/banners/banner-girlstalk.png', alt: '女生話題', href: '/blog/category/' },
+  { src: '/images/banners/banner-girlstalk.png', alt: '女生話題', href: '/' },
   { src: '/images/banners/banner-party.png', alt: '聯誼派對', href: '/party' },
   { src: '/images/banners/banner-consult.png', alt: '戀愛數字密碼諮詢', href: '/consult' },
   { src: '/images/banners/banner-podcast.png', alt: '戀愛會社節目', href: '/podcast' },
