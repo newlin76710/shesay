@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.shesay.com)",
+      "Read(//c/Users/88691/Documents/GitHub/shesay.com//**)",
+      "Read(//c/Users/88691/Documents/GitHub//**)",
+      "Bash(npm install:*)"
+    ]
+  }
+}

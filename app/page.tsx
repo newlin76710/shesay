@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { CtaBanner } from '@/components/cta-banner';
-import { ImageCard } from '@/components/image-card';
 import { SiteShell } from '@/components/site-shell';
 import { TestimonialCard } from '@/components/testimonial-card';
 
@@ -19,28 +18,55 @@ const steps = [
   },
 ];
 
-const eventCards = [
+const events = [
   {
     src: '/images/original/shesay.com/wp-content/uploads/2024/01/賞花打卡區大合照01.jpg',
-    alt: '聯誼派對活動',
-    title: '浪漫活動',
-    description: '多元有趣單身派對活動，豐富妳的社交生活。讓妳快速、精準找到適合的對象。',
-    href: '/events',
+    alt: '大板根烤肉 森林放鬆去',
+    title: '大板根烤肉｜森林放鬆去',
+    href: '/party',
+  },
+  {
+    src: '/images/original/shesay.com/wp-content/uploads/2024/01/橫式主視覺-1.jpg',
+    alt: '遊艇派對 海上的浪漫',
+    title: '遊艇派對｜海上的浪漫',
+    href: '/party',
   },
   {
     src: '/images/original/shesay.com/wp-content/uploads/2023/11/20231014手作蘋果塔-768x475-1.jpeg',
-    alt: '聯誼派對活動',
-    title: '主題活動',
-    description: '從手作、桌遊到輕鬆互動，讓認識在真實生活裡自然發生。',
-    href: '/events',
+    alt: '陽明春天 與幸福有約',
+    title: '陽明春天｜與幸福有約',
+    href: '/party',
   },
   {
     src: '/images/original/shesay.com/wp-content/uploads/2023/11/DSC00020_副本.jpeg',
-    alt: '聯誼派對活動',
-    title: '真實互動',
-    description: '在舒服的活動情境裡認識對的人，少一點尷尬，多一點真正的互動。',
-    href: '/events',
+    alt: '一對一快速約會 Speed Dating',
+    title: '一對一快速約會（Speed Dating）',
+    href: '/party',
   },
+  {
+    src: '/images/original/shesay.com/wp-content/uploads/2023/10/ep2-04-生日的彩虹數字.jpg',
+    alt: '鏢準情人 命中愛情紅心',
+    title: '鏢準情人｜命中愛情紅心',
+    href: '/party',
+  },
+  {
+    src: '/images/original/shesay.com/wp-content/uploads/2023/10/StyleUP-01.jpg',
+    alt: '桌遊派對遊戲',
+    title: '桌遊派對遊戲',
+    href: '/party',
+  },
+];
+
+const girlTopics = [
+  { label: '她說 最好吃', href: '/blog/category/food/' },
+  { label: '她想 去旅遊', href: '/blog/category/travel/' },
+  { label: '她有 美美臉', href: '/blog/category/cosmetics/' },
+  { label: '她穿 美時尚', href: '/blog/category/fashion/' },
+  { label: '她的 健康法', href: '/blog/category/healthy/' },
+  { label: '她都 輕鬆瘦', href: '/blog/category/fitness/' },
+  { label: '她的 戀愛腦', href: '/blog/category/love/' },
+  { label: '她要 去約會', href: '/blog/category/meetup/' },
+  { label: '她求 戀愛運', href: '/blog/category/destiny/' },
 ];
 
 const testimonials = [
@@ -85,32 +111,51 @@ const consultTestimonials = [
   },
 ];
 
+const products = [
+  { name: '給妳好氣色', sub: 'ExB群' },
+  { name: '好身材好纖暢', sub: '纖暢果凍' },
+  { name: '提升戀愛魅力', sub: '玻尿酸' },
+  { name: '美麗又聰慧', sub: 'Omega3魚油' },
+  { name: '給妳好面子', sub: '膠原蛋白' },
+];
+
 export default function HomePage() {
   return (
     <SiteShell>
       <main>
+        {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:px-10 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div>
               <h1 className="text-5xl font-semibold tracking-tight text-plum md:text-6xl md:leading-[1.05]">
                 SheSay 幫妳安排心動約會
               </h1>
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              <div className="mt-6 flex flex-wrap gap-6">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-rose">103,926</p>
+                  <p className="mt-1 text-sm text-plum/70">位認證會員</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-rose">4,000+</p>
+                  <p className="mt-1 text-sm text-plum/70">對配對成功</p>
+                </div>
+              </div>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 <div className="rounded-2xl bg-white p-5 shadow-soft">
-                  <p className="text-lg font-semibold text-plum">高度客製化服務</p>
+                  <p className="text-sm font-semibold text-plum">高度客製化服務</p>
                 </div>
                 <div className="rounded-2xl bg-white p-5 shadow-soft">
-                  <p className="text-lg font-semibold text-plum">大數據配對分析</p>
+                  <p className="text-sm font-semibold text-plum">大數據配對分析</p>
                 </div>
                 <div className="rounded-2xl bg-white p-5 shadow-soft">
-                  <p className="text-lg font-semibold text-plum">豐富的單身聯誼活動</p>
+                  <p className="text-sm font-semibold text-plum">豐富的單身聯誼活動</p>
                 </div>
               </div>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a href="https://lin.ee/UtgCipOq" className="rounded-full bg-rose px-7 py-4 text-center text-sm font-semibold text-white transition hover:opacity-90">
                   加入官方 LINE
                 </a>
-                <a href="/events" className="rounded-full border border-plum/15 bg-white px-7 py-4 text-center text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
+                <a href="/party" className="rounded-full border border-plum/15 bg-white px-7 py-4 text-center text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
                   聯誼派對活動
                 </a>
               </div>
@@ -121,6 +166,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* 3 Steps */}
         <section className="bg-white/70 py-16 lg:py-24">
           <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
             <div className="text-center">
@@ -135,40 +181,40 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-            <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-soft">
-              <Image src="/images/original/shesay.com/wp-content/uploads/2023/10/戀愛會社-小秘書-娜米-1.jpg" alt="現在就預約跟娜米諮詢吧" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
-            </div>
-            <div>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">現在就預約跟娜米諮詢吧</h2>
-              <p className="mt-5 text-base leading-8 text-plum/75">
-                透過一對一諮詢，從單身原因、互動困擾到戀愛方向，幫妳更理解自己，也更知道適合什麼樣的人。
-              </p>
-              <a href="/consult" className="mt-8 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
-                了解戀愛諮詢
+            <div className="mt-10 text-center">
+              <a href="https://lin.ee/UtgCipOq" className="inline-flex rounded-full bg-rose px-8 py-4 text-sm font-semibold text-white transition hover:opacity-90">
+                立刻諮詢
               </a>
             </div>
           </div>
         </section>
 
+        {/* Events */}
         <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
           <div className="text-center">
             <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 懂妳會愛的單身聯誼</h2>
             <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-plum/75">多元有趣單身派對活動，豐富妳的社交生活。讓妳快速、精準找到適合的對象</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {eventCards.map((item) => (
-              <div key={item.title}>
-                <ImageCard src={item.src} alt={item.alt} title={item.title} description={item.description} />
-              </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {events.map((item) => (
+              <a key={item.title} href={item.href} className="group relative block overflow-hidden rounded-2xl shadow-soft">
+                <div className="relative h-48">
+                  <Image src={item.src} alt={item.alt} fill className="object-cover transition group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  <div className="absolute inset-0 bg-plum/30" />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-sm font-semibold text-white">{item.title}</p>
+                  <p className="mt-1 text-xs font-medium text-white/80">我要參加 »</p>
+                </div>
+              </a>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <a href="/party" className="text-sm font-medium text-rose hover:underline">更多聯誼活動 »</a>
           </div>
         </section>
 
+        {/* Testimonials */}
         <section className="bg-white/70 py-16 lg:py-24">
           <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
             <div className="text-center">
@@ -182,21 +228,27 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* 女生話題 */}
         <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-            <div>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 女生的事女生說</h2>
-              <p className="mt-5 text-base leading-8 text-plum/75">好看、好吃、好玩 訊息不漏接</p>
-              <a href="/about" className="mt-8 inline-flex rounded-full border border-plum/15 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:text-rose">
-                看更多內容
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 女生的事女生說</h2>
+            <p className="mt-4 text-base leading-8 text-plum/75">好看、好吃、好玩 訊息不漏接</p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
+            {girlTopics.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="flex items-center justify-between rounded-2xl border border-plum/10 bg-white px-6 py-4 shadow-soft transition hover:border-rose/30 hover:text-rose"
+              >
+                <span className="text-sm font-semibold text-plum group-hover:text-rose">{item.label}</span>
+                <span className="text-xs text-rose">看文章 »</span>
               </a>
-            </div>
-            <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-soft">
-              <Image src="/images/original/shesay.com/wp-content/uploads/2023/10/活動、品牌-scaled.jpg" alt="SheSay 女生的事女生說" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
-            </div>
+            ))}
           </div>
         </section>
 
+        {/* 戀愛數字密碼 */}
         <section className="bg-white/70 py-16 lg:py-24">
           <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
             <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
@@ -204,28 +256,29 @@ export default function HomePage() {
                 <Image src="/images/original/shesay.com/wp-content/uploads/2023/10/SheSay-戀愛數字密碼-banner-1-2048x758.jpg" alt="SheSay 戀愛數字密碼諮詢" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
               </div>
               <div>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 戀愛數字密碼諮詢</h2>
-                <h3 className="mt-4 text-xl font-semibold text-plum">從生日就知道妳的戀愛煩惱</h3>
-                <p className="mt-5 whitespace-pre-line text-base leading-8 text-plum/75">了解戀愛數字密碼 ⬇️
-妳可以⋯⋯
-預約娜米老師諮詢、
-戀愛數字計算機自己算、
-【戀愛會社】節目上免費解析
-
-每個人出生時都帶有
-一組戀愛數字密碼
-娜米帶妳看出寫在妳生日密碼中關於戀愛的藍圖是什麼？
-為何現在單身？
-為什麼總是遇不到對的人？
-如何才能追到喜歡的對象？</p>
-                <a href="/consult" className="mt-8 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
-                  解讀生命密碼展開戀愛藍圖
-                </a>
+                <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 戀愛數字密碼諮詢</h2>
+                <h3 className="mt-3 text-lg font-semibold text-plum/80">從生日就知道妳的戀愛煩惱</h3>
+                <p className="mt-4 text-base leading-8 text-plum/75">
+                  每個人出生時都帶有一組戀愛數字密碼<br />
+                  解讀生命密碼 展開戀愛藍圖
+                </p>
+                <div className="mt-6 flex flex-col gap-3">
+                  <a href="https://datenami.tw/dt09N6FMu" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
+                    馬上預約戀愛數字諮詢
+                  </a>
+                  <a href="https://datenami.tw/dt09brRrq" className="inline-flex rounded-full border border-plum/20 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
+                    免費速測妳的戀愛數字
+                  </a>
+                  <a href="https://datenami.tw/dt09keayb" className="inline-flex rounded-full border border-plum/20 bg-white px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose">
+                    參加戀愛諮詢節目
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* 諮詢見證 */}
         <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
           <div className="text-center">
             <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 戀愛密碼諮詢見證</h2>
@@ -237,11 +290,20 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* 戀愛產品 */}
         <section className="bg-white/70 py-16 lg:py-24">
           <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
             <div className="text-center">
               <h2 className="text-3xl font-semibold tracking-tight text-plum md:text-4xl">SheSay 提升戀愛魅力值</h2>
-              <p className="mt-4 text-base leading-8 text-plum/75">戀愛產品推薦</p>
+              <p className="mt-4 text-base text-plum/75">戀愛產品推薦</p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3 md:grid-cols-5">
+              {products.map((item) => (
+                <div key={item.name} className="rounded-2xl bg-white p-6 text-center shadow-soft">
+                  <p className="text-sm font-semibold text-plum">{item.name}</p>
+                  <p className="mt-2 text-xs text-plum/60">{item.sub}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
