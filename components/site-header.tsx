@@ -10,7 +10,7 @@ const girlTopics = [
 const navItems = [
   { href: '/party', label: '聯誼派對' },
   { href: '/consult', label: '戀愛諮詢' },
-  { href: 'https://datenami.tw/dt09keayb', label: '戀愛會社', external: true },
+  { href: '/podcast', label: '戀愛會社' },
   { href: '/about', label: '關於我們' },
   { href: '/about#advertising', label: '廣告合作' },
 ];
@@ -51,7 +51,6 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="text-sm font-medium text-plum/80 transition hover:text-rose"
             >
               {item.label}
