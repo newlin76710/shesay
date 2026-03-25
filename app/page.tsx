@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { BannerSlider } from '@/components/banner-slider';
 import { CtaBanner } from '@/components/cta-banner';
 import { SiteShell } from '@/components/site-shell';
 import { TestimonialCard } from '@/components/testimonial-card';
@@ -123,6 +124,9 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
+        {/* Banner Slider */}
+        <BannerSlider />
+
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:px-10 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">

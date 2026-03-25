@@ -12,7 +12,7 @@ const navItems = [
   { href: '/consult', label: '戀愛諮詢' },
   { href: '/podcast', label: '戀愛會社' },
   { href: '/about', label: '關於我們' },
-  { href: '/about#advertising', label: '廣告合作' },
+  { href: '/advertising', label: '廣告合作' },
 ];
 
 export function SiteHeader() {

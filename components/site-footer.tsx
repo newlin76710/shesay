@@ -9,7 +9,7 @@ export function SiteFooter() {
               單身聯誼活動、交友平台、相親認識異性、找對象的交友網站、婚友社、脫單
             </p>
             <a
-              href="https://datenami.tw/dt09varRz"
+              href="https://lin.ee/o4lCgwJ"
               className="mt-6 inline-flex rounded-full bg-rose px-6 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
             >
               與戀愛小秘書交談
