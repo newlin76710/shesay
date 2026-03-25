@@ -1,12 +1,5 @@
 import Image from 'next/image';
 
-const girlTopics = [
-  { href: '/blog/category/food/', label: '推好吃好玩' },
-  { href: '/blog/category/fashion/', label: '追漂亮時尚' },
-  { href: '/blog/category/healthy/', label: '健康又緊實' },
-  { href: '/blog/category/love/', label: '戀愛百寶箱' },
-];
-
 const navItems = [
   { href: '/party', label: '聯誼派對' },
   { href: '/consult', label: '戀愛諮詢' },
@@ -30,23 +23,6 @@ export function SiteHeader() {
           />
         </a>
         <nav className="hidden items-center gap-6 lg:flex">
-          {/* 女生話題 dropdown */}
-          <div className="group relative">
-            <a href="/" className="text-sm font-medium text-plum/80 transition hover:text-rose">
-              女生話題
-            </a>
-            <div className="absolute left-0 top-full hidden min-w-[140px] rounded-xl border border-[#f1d9df] bg-white py-2 shadow-soft group-hover:block">
-              {girlTopics.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="block px-4 py-2 text-sm text-plum/80 transition hover:bg-blush hover:text-rose"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
           {navItems.map((item) => (
             <a
               key={item.href}
