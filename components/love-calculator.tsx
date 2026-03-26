@@ -99,9 +99,9 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
   const cardSrc = CARD_IMAGES[result.mainNumber] || CARD_IMAGES[1];
 
   return (
-    <div className="mx-auto w-full max-w-[576px]">
+    <div className="mx-auto w-full max-w-[576px] px-2 sm:px-0">
       {/* 卡片圖片容器 — 只顯示上方卡片部分，裁切底部按鈕 */}
-      <div className="relative overflow-hidden rounded-3xl shadow-soft">
+      <div className="relative overflow-hidden rounded-2xl shadow-soft sm:rounded-3xl">
         <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/16.2' }}>
           <Image
             src={cardSrc}
@@ -112,12 +112,12 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
             priority
           />
 
-          {/* 覆蓋「小瀨」— 在姓名框內 */}
+          {/* 覆蓋「小瀨」— 在姓名框內，用 % 定位自適應所有尺寸 */}
           <div
             className="absolute flex items-center"
             style={{
-              top: '6.6%',
-              left: '4.5%',
+              top: '7.8%',
+              left: '5%',
               width: '22%',
               height: '2.8%',
             }}
@@ -125,7 +125,7 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
             <span
               className="font-bold leading-none text-[#333]"
               style={{
-                fontSize: 'clamp(13px, 3.2vw, 22px)',
+                fontSize: 'min(3.5vw, 22px)',
               }}
             >
               {result.name}
@@ -134,18 +134,18 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
         </div>
       </div>
 
-      {/* 按鈕 */}
-      <div className="mt-6 flex justify-center gap-3">
+      {/* 按鈕 — 手機版堆疊，桌面版並排 */}
+      <div className="mt-5 flex flex-col items-center gap-3 sm:mt-6 sm:flex-row sm:justify-center">
         <button
           type="button"
           onClick={onBack}
-          className="rounded-full border border-plum/20 px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose"
+          className="w-full rounded-full border border-plum/20 px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose sm:w-auto"
         >
           再測一次
         </button>
         <a
           href="/consult"
-          className="inline-flex items-center rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:opacity-90"
+          className="inline-flex w-full items-center justify-center rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:opacity-90 sm:w-auto"
         >
           立即預約戀愛諮詢
         </a>
@@ -166,7 +166,7 @@ export function LoveCalculator() {
   const handleBack = () => setResult(null);
 
   return (
-    <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:py-16">
+    <section className="mx-auto max-w-4xl px-3 py-8 sm:px-6 sm:py-12 lg:py-16">
       {result ? (
         <ResultCard result={result} onBack={handleBack} />
       ) : (
