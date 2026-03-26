@@ -219,16 +219,17 @@ export function calculateLoveNumber(
     mainNumbers[i] = main;
   }
 
-  // 主命數取 index 3 (陽曆生日+時辰)
-  const mainNumber = parseInt(mainNumbers[3]) || 1;
+  // 主命數 = 生日 YYYYMMDD 所有數字加總，反覆縮減到個位數
+  // 例：1987-07-10 → 1+9+8+7+0+7+1+0=33 → 3+3=6 → 主命數 6
+  const mainNumber = parseInt(mainNumbers[2]) || 1;
 
-  // 鍛鍊數字 = backNumbers[3] + secondBackNumbers[3] 去重
+  // 鍛鍊數字 = backNumbers[2] + secondBackNumbers[2] 去重
   const practiceNumbers: number[] = [];
-  for (const d of backNumbers[3]) {
+  for (const d of backNumbers[2]) {
     const n = parseInt(d);
     if (!practiceNumbers.includes(n)) practiceNumbers.push(n);
   }
-  for (const d of secondBackNumbers[3]) {
+  for (const d of secondBackNumbers[2]) {
     const n = parseInt(d);
     if (!practiceNumbers.includes(n)) practiceNumbers.push(n);
   }
