@@ -21,13 +21,13 @@ const hosts = [
     name: '戀愛社長 謝綸',
     role: '社長',
     desc: '戀愛主命數1，有明確目標和想法，感情靈魂等級7級（最高等級博士畢業生）但在戀愛上卻卡在：需要別人的欣賞、認同、沒自信，甚至覺得「怎麼可能會有女生喜歡我」',
-    src: BASE + '節目-02-愛情疑難雜症.jpg',
+    src: BASE + '戀愛會社-社長-謝綸.jpg',
   },
   {
     name: '戀愛社畜 予琳',
     role: '社畜',
     desc: '感情主修1，很專情、重視直覺、有時候也喜歡自己一人的感覺。感情靈魂等級5級（等級類似大學生）想要被對方尊重，如果有受到尊重就會充滿熱忱，否則根本不想理對方～',
-    src: BASE + '節目-03-一對一戀愛諮詢.jpg',
+    src: BASE + '戀愛會社-社畜-00-1.jpg',
   },
 ];
 
@@ -70,25 +70,39 @@ const codeHelps = [
 ];
 
 const videoEpisodes = [
-  { title: 'EP4', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep4-cover-v2.jpg' },
-  { title: 'EP14', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep14-cover.jpg' },
-  { title: 'EP8', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep8-cover.jpg' },
-  { title: 'EP18', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep18-cover.jpg' },
-  { title: 'EP10', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep10-cover.jpg' },
-  { title: 'EP17', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep17-cover.jpg' },
-  { title: 'EP15', src: 'https://ek21.com/dating/wp-content/uploads/2024/04/ep15-cover.jpg' },
+  { title: 'EP4', src: '/images/podcast-covers/ep4-cover-v2.jpg' },
+  { title: 'EP14', src: '/images/podcast-covers/ep14-cover.jpg' },
+  { title: 'EP8', src: '/images/podcast-covers/ep8-cover.jpg' },
+  { title: 'EP18', src: '/images/podcast-covers/ep18-cover.jpg' },
+  { title: 'EP10', src: '/images/podcast-covers/ep10-cover.jpg' },
+  { title: 'EP17', src: '/images/podcast-covers/ep17-cover.jpg' },
+  { title: 'EP15', src: '/images/podcast-covers/ep15-cover.jpg' },
 ];
 
 export default function PodcastPage() {
   return (
     <SiteShell>
       <main>
-        {/* Hero — 從生日就看出妳的戀愛關卡 */}
-        <section className="bg-gradient-to-b from-[#fff5f5] to-white py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10 text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-plum md:text-5xl">從生日就看出妳的戀愛關卡</h1>
-            <p className="mt-4 text-lg text-plum/70">你有以下戀愛困擾嗎？</p>
-            <ul className="mx-auto mt-8 max-w-2xl space-y-4 text-left">
+        {/* Hero Banner — 全寬圖片 */}
+        <section className="relative w-full">
+          <div className="relative aspect-[2553/945] w-full">
+            <Image
+              src="/images/podcast-covers/banner.jpg"
+              alt="戀愛會社節目"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          </div>
+        </section>
+
+        {/* 困擾 + CTA */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-plum md:text-4xl">從生日就看出妳的戀愛關卡</h2>
+            <p className="mt-4 text-center text-lg text-plum/70">你有以下戀愛困擾嗎？</p>
+            <ul className="mx-auto mt-8 max-w-2xl space-y-4">
               {worries.map((item) => (
                 <li key={item} className="flex gap-3 text-base leading-7 text-plum/80">
                   <span className="mt-1 shrink-0 text-rose">●</span>
@@ -96,54 +110,49 @@ export default function PodcastPage() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#form"
-              className="mt-10 inline-flex rounded-full bg-rose px-8 py-4 text-base font-semibold text-white shadow-lg transition hover:opacity-90"
-            >
-              來戀愛會社面試吧！
-            </a>
+            <div className="mt-10 text-center">
+              <a
+                href="#form"
+                className="inline-flex rounded-full bg-rose px-8 py-4 text-base font-semibold text-white shadow-lg transition hover:opacity-90"
+              >
+                來戀愛會社面試吧！
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* 主持人介紹 */}
-        <section className="py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-plum">面試官介紹</h2>
-            </div>
+        {/* 面試官介紹 — 3 欄 */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-plum">來戀愛會社面試吧！</h2>
+            <p className="mt-2 text-center text-base text-plum/70">面試官介紹</p>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
               {hosts.map((host) => (
-                <article key={host.name} className="overflow-hidden rounded-3xl bg-white shadow-soft">
-                  <div className="relative aspect-square">
+                <article key={host.name} className="text-center">
+                  <div className="relative mx-auto aspect-[4/5] w-full overflow-hidden rounded-2xl">
                     <Image src={host.src} alt={host.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
-                  <div className="p-6">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-rose">{host.role}</p>
-                    <h3 className="mt-2 text-lg font-bold text-plum">{host.name}</h3>
-                    <p className="mt-3 text-sm leading-7 text-plum/70">{host.desc}</p>
-                  </div>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-rose">{host.role}</p>
+                  <h3 className="mt-2 text-lg font-bold text-plum">{host.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-plum/70">{host.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 節目特色 — 三大主題 */}
-        <section className="bg-[#fdf6f6] py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-plum">戀愛會社－射中你理想中的愛情</h2>
-            </div>
+        {/* 節目特色 — 3 欄圖文卡 */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-plum">戀愛會社－射中你理想中的愛情</h2>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
               {features.map((f) => (
-                <article key={f.title} className="overflow-hidden rounded-3xl bg-white shadow-soft">
-                  <div className="relative aspect-square">
+                <article key={f.title} className="text-center">
+                  <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-2xl">
                     <Image src={f.src} alt={f.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-plum">{f.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-plum/70">{f.desc}</p>
-                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-plum">{f.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-plum/70">{f.desc}</p>
                 </article>
               ))}
             </div>
@@ -158,47 +167,32 @@ export default function PodcastPage() {
           </div>
         </section>
 
-        {/* 誠徵社員戀愛煩惱 — 集數圖 */}
-        <section className="py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-plum">誠徵社員戀愛煩惱</h2>
-              <p className="mt-2 text-base text-plum/70">從你的生日我們發現</p>
-            </div>
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {/* 誠徵社員戀愛煩惱 — 3×3 方形圖片 */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-plum">誠徵社員戀愛煩惱</h2>
+            <p className="mt-2 text-center text-base text-plum/70">從你的生日我們發現</p>
+            <div className="mt-12 grid grid-cols-3 gap-4">
               {episodes.map((ep) => (
-                <a
-                  key={ep.title}
-                  href="https://lin.ee/o4lCgwJ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group overflow-hidden rounded-2xl bg-white shadow-soft"
-                >
-                  <div className="relative aspect-video">
-                    <Image src={ep.src} alt={ep.title} fill className="object-cover transition group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                    <div className="absolute inset-0 flex items-center justify-center bg-plum/20 opacity-0 transition group-hover:opacity-100">
-                      <span className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-plum">▶ 收聽</span>
-                    </div>
+                <div key={ep.title} className="relative aspect-square overflow-hidden">
+                  <Image src={ep.src} alt={ep.title} fill className="object-cover" sizes="(max-width: 768px) 33vw, 33vw" />
+                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/50 to-transparent p-4">
+                    <p className="text-sm font-semibold text-white">{ep.title}</p>
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm font-semibold text-plum">{ep.title}</p>
-                  </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 戀愛數字密碼五大幫助 */}
-        <section className="bg-[#fdf6f6] py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-plum">戀愛數字密碼 幫助這麼大</h2>
-            </div>
+        {/* 戀愛數字密碼五大幫助 — 5 欄 */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-plum">戀愛數字密碼 幫助這麼大</h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-5">
               {codeHelps.map((item) => (
-                <article key={item.num} className="rounded-3xl bg-white p-6 shadow-soft text-center">
-                  <p className="text-3xl font-bold text-rose">{item.num}</p>
+                <article key={item.num} className="text-center">
+                  <p className="text-4xl font-bold text-rose">{item.num}</p>
                   <h3 className="mt-3 text-base font-bold text-plum">{item.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-plum/70">{item.desc}</p>
                 </article>
@@ -211,20 +205,13 @@ export default function PodcastPage() {
         </section>
 
         {/* 報名表單 */}
-        <section id="form" className="py-16 lg:py-24">
+        <section id="form" className="py-16 lg:py-20">
           <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-10">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-plum">我要參加戀愛會社節目</h2>
-              <p className="mt-4 text-base leading-7 text-plum/70">
-                歡迎分享戀愛經驗中的任何疑難雜症，無論是約會、搭訕、把妹、穿搭…等問題，都可以匿名留言給我～記得附上你的生日密碼，戀愛小秘書、戀愛社長及戀愛社畜將在節目中為各位解惑！
-              </p>
-            </div>
-            <form
-              action="https://lin.ee/o4lCgwJ"
-              method="get"
-              target="_blank"
-              className="mt-10 space-y-6"
-            >
+            <h2 className="text-center text-3xl font-bold tracking-tight text-plum">我要參加戀愛會社節目</h2>
+            <p className="mt-4 text-center text-base leading-7 text-plum/70">
+              歡迎分享戀愛經驗中的任何疑難雜症，無論是約會、搭訕、把妹、穿搭…等問題，都可以匿名留言給我～記得附上你的生日密碼，戀愛小秘書、戀愛社長及戀愛社畜將在節目中為各位解惑！
+            </p>
+            <form className="mt-10 space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-plum">怎麼稱呼您？ <span className="text-rose">*</span></label>
                 <p className="mb-1 text-xs text-plum/50">留言將在節目中被公開討論，請盡量使用化名</p>
@@ -263,16 +250,16 @@ export default function PodcastPage() {
           </div>
         </section>
 
-        {/* 戀愛數字密碼工具包 */}
-        <section className="bg-[#fdf6f6] py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
+        {/* 戀愛數字密碼工具包 — 2×2 */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
             <h2 className="text-center text-3xl font-bold tracking-tight text-plum">戀愛數字密碼工具包</h2>
             <div className="mt-12 grid gap-8 md:grid-cols-2">
-              <div className="rounded-3xl bg-white p-8 text-center shadow-soft">
+              <div className="rounded-2xl bg-white p-8 text-center shadow-soft">
                 <h3 className="text-lg font-bold text-plum">收聽戀愛會社 Podcast</h3>
                 <p className="mt-3 text-sm leading-6 text-plum/70">訂閱節目，每集免費收聽戀愛數字密碼解析。</p>
                 <a
-                  href="https://lin.ee/o4lCgwJ"
+                  href="https://podcasts.apple.com/tw/podcast/%E6%88%80%E6%84%9B%E6%9C%83%E7%A4%BE/id1713547573"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
@@ -280,7 +267,7 @@ export default function PodcastPage() {
                   前往收聽
                 </a>
               </div>
-              <div className="rounded-3xl bg-white p-8 text-center shadow-soft">
+              <div className="rounded-2xl bg-white p-8 text-center shadow-soft">
                 <h3 className="text-lg font-bold text-plum">免費測戀愛數字密碼</h3>
                 <p className="mt-3 text-sm leading-6 text-plum/70">輸入生日，立即試算你的專屬戀愛數字密碼。</p>
                 <a
@@ -292,7 +279,7 @@ export default function PodcastPage() {
                   立即試算
                 </a>
               </div>
-              <div className="rounded-3xl bg-white p-8 text-center shadow-soft">
+              <div className="rounded-2xl bg-white p-8 text-center shadow-soft">
                 <h3 className="text-lg font-bold text-plum">預約戀愛數字一對一諮詢</h3>
                 <p className="mt-3 text-sm leading-6 text-plum/70">深入了解個人戀愛數字密碼，與娜米老師一對一解析。</p>
                 <a
@@ -302,11 +289,11 @@ export default function PodcastPage() {
                   了解戀愛數字密碼
                 </a>
               </div>
-              <div className="rounded-3xl bg-white p-8 text-center shadow-soft">
+              <div className="rounded-2xl bg-white p-8 text-center shadow-soft">
                 <h3 className="text-lg font-bold text-plum">馬上觀看戀愛會社</h3>
                 <p className="mt-3 text-sm leading-6 text-plum/70">觀看完整節目影片，從影片中學習戀愛秘訣。</p>
                 <a
-                  href="https://lin.ee/o4lCgwJ"
+                  href="https://www.youtube.com/@shesay_dating"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
@@ -318,24 +305,27 @@ export default function PodcastPage() {
           </div>
         </section>
 
-        {/* 影片集數 */}
-        <section className="py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* 影片集數 — 方形封面 */}
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {videoEpisodes.map((ep) => (
                 <a
                   key={ep.title}
-                  href="https://lin.ee/o4lCgwJ"
+                  href="https://www.youtube.com/@shesay_dating"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-2xl shadow-soft"
+                  className="group relative aspect-square overflow-hidden"
                 >
-                  <div className="relative aspect-[3/4]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={ep.src} alt={ep.title} className="h-full w-full object-cover transition group-hover:scale-105" />
-                    <div className="absolute inset-0 flex items-center justify-center bg-plum/20 opacity-0 transition group-hover:opacity-100">
-                      <span className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-plum">▶ 播放</span>
-                    </div>
+                  <Image
+                    src={ep.src}
+                    alt={ep.title}
+                    fill
+                    className="object-cover transition group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 transition group-hover:opacity-100">
+                    <span className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-plum">▶ 播放</span>
                   </div>
                 </a>
               ))}
@@ -344,23 +334,23 @@ export default function PodcastPage() {
         </section>
 
         {/* 節目說明 */}
-        <section className="bg-plum py-16 lg:py-24">
-          <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-10 text-white">
-            <h2 className="text-3xl font-bold">馬上觀看戀愛會社</h2>
-            <p className="mt-6 text-base leading-8 text-white/80">
+        <section className="py-16 lg:py-20">
+          <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
+            <h2 className="text-3xl font-bold text-plum">馬上觀看戀愛會社</h2>
+            <p className="mt-6 text-base leading-8 text-plum/70">
               《戀愛會社》這個節目專門為那些在愛情路上遇到困難的朋友們設計，無論是缺乏感情經驗、不知道如何吸引異性，還是總是遇見不對的人，這裡都有解答！
             </p>
-            <p className="mt-4 text-base leading-8 text-white/80">
+            <p className="mt-4 text-base leading-8 text-plum/70">
               節目由戀愛社長謝綸、戀愛社畜予琳，以及會算命的紅娘——戀愛小秘書娜米共同主持。他們將透過網友提問和互動，幫助大家應對各種愛情疑難雜症。不論是如何邀約心儀的對象、如何應對渣男，還是如何處理喜歡的人喜歡別人的情況，節目都會給出建議和解答。
             </p>
-            <p className="mt-4 text-base leading-8 text-white/80">
+            <p className="mt-4 text-base leading-8 text-plum/70">
               更有趣的是，節目還會用彩虹數字來解構愛情，每個數字都代表著不同的戀愛密碼。透過這些數字，你可以更了解彼此之間的互動方式，是療癒關係、曖昧關係，還是其他形式的關係。《戀愛會社》不僅僅是一個 Podcast 節目，它是一個幫助你瞭解自己、增強愛情勇氣和力量的平台。
             </p>
             <a
-              href="https://lin.ee/o4lCgwJ"
+              href="https://www.youtube.com/@shesay_dating"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-plum transition hover:bg-sand"
+              className="mt-8 inline-flex rounded-full bg-rose px-8 py-4 text-sm font-semibold text-white transition hover:opacity-90"
             >
               馬上收看節目
             </a>
