@@ -1,7 +1,4 @@
-'use client';
-
 import Image from 'next/image';
-import { useState } from 'react';
 import { SiteShell } from '@/components/site-shell';
 
 const BASE10 = '/images/original/shesay.com/wp-content/uploads/2023/10/';
@@ -93,47 +90,36 @@ const services: { title: string; images: string[]; desc: string; gallery?: strin
   },
 ];
 
-function Accordion({ items }: { items: typeof services }) {
-  const [open, setOpen] = useState(0);
+function ServiceList({ items }: { items: typeof services }) {
   return (
-    <div className="space-y-3">
+    <div className="space-y-6">
       {items.map((item, idx) => (
         <div key={item.title} className="overflow-hidden rounded-2xl border border-[#DFDFE2] bg-white">
-          <button
-            onClick={() => setOpen(open === idx ? -1 : idx)}
-            className="flex w-full items-center justify-between p-5 text-left transition hover:bg-blush"
-          >
-            <span className="flex items-center gap-3">
-              <span className="text-xs font-bold text-rose">{String(idx + 1).padStart(2, '0')}</span>
-              <span className="text-base font-bold text-plum">{item.title}</span>
-            </span>
-            <svg className={`h-5 w-5 shrink-0 text-plum/50 transition ${open === idx ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/></svg>
-          </button>
-          {open === idx && (
-            <div className="border-t border-[#DFDFE2] px-5 pb-5 pt-4">
-              <p className="text-sm leading-7 text-[#54595F]">{item.desc}</p>
-              {/* Gallery images (product shots, logos) */}
-              {item.gallery && item.gallery.length > 0 && (
-                <div className={`mt-4 grid gap-3`} style={{ gridTemplateColumns: `repeat(${item.cols || 3}, minmax(0, 1fr))` }}>
-                  {item.gallery.map((src) => (
-                    <div key={src} className="relative aspect-square overflow-hidden rounded-lg bg-[#f8f8f8]">
-                      <Image src={src} alt="" fill className="object-contain p-1" sizes="150px" />
-                    </div>
-                  ))}
-                </div>
-              )}
-              {/* Carousel/grid images */}
-              {item.images.length > 0 && (
-                <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  {item.images.map((src) => (
-                    <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                      <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+          <div className="flex items-center gap-3 border-b border-[#DFDFE2] p-5">
+            <span className="text-xs font-bold text-rose">{String(idx + 1).padStart(2, '0')}</span>
+            <span className="text-base font-bold text-plum">{item.title}</span>
+          </div>
+          <div className="px-5 pb-5 pt-4">
+            <p className="text-sm leading-7 text-[#54595F]">{item.desc}</p>
+            {item.gallery && item.gallery.length > 0 && (
+              <div className="mt-4 grid gap-3" style={{ gridTemplateColumns: `repeat(${item.cols || 3}, minmax(0, 1fr))` }}>
+                {item.gallery.map((src) => (
+                  <div key={src} className="relative aspect-square overflow-hidden rounded-lg bg-[#f8f8f8]">
+                    <Image src={src} alt="" fill className="object-contain p-1" sizes="150px" />
+                  </div>
+                ))}
+              </div>
+            )}
+            {item.images.length > 0 && (
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {item.images.map((src) => (
+                  <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                    <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       ))}
     </div>
@@ -197,7 +183,7 @@ export default function AdvertisingPage() {
         <section className="mx-auto max-w-4xl px-6 py-12 sm:px-8">
           <h2 className="text-2xl font-bold text-plum">服務項目</h2>
           <div className="mt-8">
-            <Accordion items={services} />
+            <ServiceList items={services} />
           </div>
         </section>
 
