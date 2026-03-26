@@ -131,26 +131,26 @@ export default function PartyPage() {
       <main>
         {/* Hero */}
         <section>
-          <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/5' }}>
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
             <Image
               src="/images/banners/banner-party.png"
               alt="聯誼派對活動"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               sizes="100vw"
               priority
             />
           </div>
           {/* 錨點導航列 */}
-          <div className="sticky top-[65px] z-20 overflow-x-auto border-b border-plum/10 bg-white/95 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl gap-1 px-4 py-3 sm:justify-center sm:gap-2 sm:px-6">
+          <div className="sticky top-[57px] z-20 overflow-x-auto border-b border-plum/10 bg-white/95 backdrop-blur sm:top-[65px]" style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="mx-auto flex max-w-6xl gap-1.5 px-3 py-2.5 sm:justify-center sm:gap-2 sm:px-6 sm:py-3">
               {categories.map((cat) => (
                 <a
                   key={cat.id}
                   href={`#${cat.id}`}
-                  className="flex shrink-0 items-center gap-1.5 rounded-full border border-plum/15 px-4 py-2 text-xs font-semibold text-plum/70 transition hover:border-rose hover:bg-rose/5 hover:text-rose sm:text-sm"
+                  className="flex shrink-0 items-center gap-1 rounded-full border border-plum/15 px-3 py-1.5 text-[11px] font-semibold text-plum/70 transition hover:border-rose hover:bg-rose/5 hover:text-rose sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm"
                 >
-                  <span className="text-base leading-none">{categoryIcons[cat.id] || '📌'}</span>
+                  <span className="text-sm leading-none sm:text-base">{categoryIcons[cat.id] || '📌'}</span>
                   {cat.id}
                 </a>
               ))}
@@ -159,19 +159,20 @@ export default function PartyPage() {
         </section>
 
         {/* 活動類別 */}
-        <section className="mx-auto max-w-6xl px-6 py-12 sm:px-8 lg:px-10 lg:py-16">
-          <div className="space-y-14">
+        <section className="mx-auto max-w-6xl px-4 py-8 sm:px-8 sm:py-12 lg:px-10 lg:py-16">
+          <div className="space-y-10 sm:space-y-14">
             {categories.map((cat) => (
-              <div key={cat.id} id={cat.id} className="scroll-mt-32">
-                <div className="flex items-center justify-between border-b border-plum/10 pb-3">
-                  <h2 className="text-2xl font-bold text-plum">{cat.id}</h2>
+              <div key={cat.id} id={cat.id} className="scroll-mt-28 sm:scroll-mt-32">
+                <div className="flex items-center gap-2 border-b border-plum/10 pb-3">
+                  <span className="text-lg">{categoryIcons[cat.id] || '📌'}</span>
+                  <h2 className="text-xl font-bold text-plum sm:text-2xl">{cat.id}</h2>
                 </div>
-                <div className="mt-6 grid gap-5 sm:grid-cols-3">
+                <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-6 sm:grid-cols-3 sm:gap-5">
                   {cat.activities.map((act) => (
                     <a
                       key={act.title}
                       href={act.href}
-                      className="group overflow-hidden rounded-2xl bg-white shadow-soft transition hover:shadow-lg"
+                      className="group overflow-hidden rounded-xl bg-white shadow-soft transition hover:shadow-lg sm:rounded-2xl"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <Image
@@ -179,12 +180,12 @@ export default function PartyPage() {
                           alt={act.title}
                           fill
                           className="object-cover transition duration-300 group-hover:scale-105"
-                          sizes="(max-width: 640px) 100vw, 33vw"
+                          sizes="(max-width: 640px) 50vw, 33vw"
                         />
                       </div>
-                      <div className="p-4">
-                        <p className="text-sm font-semibold text-plum">{act.title}</p>
-                        <p className="mt-2 text-xs font-medium text-rose">查看活動詳情 »</p>
+                      <div className="p-3 sm:p-4">
+                        <p className="text-xs font-semibold leading-5 text-plum sm:text-sm">{act.title}</p>
+                        <p className="mt-1 text-[10px] font-medium text-rose sm:mt-2 sm:text-xs">查看活動詳情 »</p>
                       </div>
                     </a>
                   ))}
@@ -232,12 +233,12 @@ export default function PartyPage() {
           </div>
 
           {/* 精選活動 */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-3 md:grid-cols-5">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4 md:grid-cols-5">
             {featured.map((f) => (
               <a
                 key={f.title}
                 href={f.href}
-                className="group overflow-hidden rounded-2xl bg-white shadow-soft"
+                className="group overflow-hidden rounded-xl bg-white shadow-soft sm:rounded-2xl"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -248,8 +249,8 @@ export default function PartyPage() {
                     sizes="(max-width: 640px) 50vw, 20vw"
                   />
                 </div>
-                <div className="p-3">
-                  <p className="text-xs font-semibold leading-5 text-plum">{f.title}</p>
+                <div className="p-2 sm:p-3">
+                  <p className="text-[10px] font-semibold leading-4 text-plum sm:text-xs sm:leading-5">{f.title}</p>
                 </div>
               </a>
             ))}
