@@ -1,127 +1,54 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { calculateLoveNumber, getPracticeText, getNumberAccent, type LoveNumberResult } from '@/lib/love-number';
+import { useState } from 'react';
+import Image from 'next/image';
+import { calculateLoveNumber, type LoveNumberResult } from '@/lib/love-number';
 
-/* ─── 主命數 1-9 對應的 SVG 圖案（左上角裝飾） ─── */
-function NumberIcon({ n, size = 120 }: { n: number; size?: number }) {
-  const accent = getNumberAccent(n);
-  // 每個數字有不同的幾何圖形
-  const shapes: Record<number, React.ReactNode> = {
-    1: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <polygon points="60,10 110,90 10,90" fill="none" stroke={accent} strokeWidth="2.5" opacity="0.5" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>1</text>
-      </svg>
-    ),
-    2: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <ellipse cx="60" cy="60" rx="40" ry="50" fill="none" stroke={accent} strokeWidth="2" opacity="0.4" />
-        <ellipse cx="60" cy="60" rx="50" ry="35" fill="none" stroke={accent} strokeWidth="2" opacity="0.3" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>2</text>
-      </svg>
-    ),
-    3: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <rect x="20" y="20" width="80" height="80" rx="8" fill="none" stroke={accent} strokeWidth="2" opacity="0.4" transform="rotate(15 60 60)" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>3</text>
-      </svg>
-    ),
-    4: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <rect x="25" y="25" width="70" height="70" fill="none" stroke={accent} strokeWidth="2.5" opacity="0.5" />
-        <rect x="35" y="35" width="50" height="50" fill="none" stroke={accent} strokeWidth="1.5" opacity="0.3" transform="rotate(45 60 60)" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>4</text>
-      </svg>
-    ),
-    5: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <polygon points="60,8 75,45 115,45 83,70 95,108 60,85 25,108 37,70 5,45 45,45" fill="none" stroke={accent} strokeWidth="2" opacity="0.4" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>5</text>
-      </svg>
-    ),
-    6: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <polygon points="60,10 100,35 100,85 60,110 20,85 20,35" fill="none" stroke={accent} strokeWidth="2.5" opacity="0.4" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>6</text>
-      </svg>
-    ),
-    7: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <circle cx="60" cy="60" r="35" fill="none" stroke={accent} strokeWidth="2" opacity="0.3" />
-        <line x1="60" y1="5" x2="60" y2="115" stroke={accent} strokeWidth="1" opacity="0.2" />
-        <line x1="5" y1="60" x2="115" y2="60" stroke={accent} strokeWidth="1" opacity="0.2" />
-        <line x1="18" y1="18" x2="102" y2="102" stroke={accent} strokeWidth="1" opacity="0.2" />
-        <line x1="102" y1="18" x2="18" y2="102" stroke={accent} strokeWidth="1" opacity="0.2" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>7</text>
-      </svg>
-    ),
-    8: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <path d="M60,15 Q95,15 95,42 Q95,60 60,60 Q25,60 25,78 Q25,105 60,105 Q95,105 95,78 Q95,60 60,60 Q25,60 25,42 Q25,15 60,15Z" fill="none" stroke={accent} strokeWidth="2" opacity="0.4" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>8</text>
-      </svg>
-    ),
-    9: (
-      <svg width={size} height={size} viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="55" fill="none" stroke={accent} strokeWidth="3" opacity="0.2" />
-        <circle cx="60" cy="45" r="30" fill="none" stroke={accent} strokeWidth="2" opacity="0.4" />
-        <line x1="90" y1="45" x2="60" y2="110" stroke={accent} strokeWidth="2" opacity="0.4" />
-        <text x="60" y="68" textAnchor="middle" fontSize="42" fontWeight="bold" fill={accent}>9</text>
-      </svg>
-    ),
-  };
-  return shapes[n] || shapes[1];
-}
+/* ─── 主命數 1-9 對應圖片路徑 ─── */
+const CARD_IMAGES: Record<number, string> = {
+  1: '/images/calculator/戀愛職能測驗-No.01-營運部-行政管理.png',
+  2: '/images/calculator/戀愛職能測驗-No.02-產品部-專案規劃師.png',
+  3: '/images/calculator/戀愛職能測驗-No.03-行銷推廣部-行銷 企劃.png',
+  4: '/images/calculator/戀愛職能測驗-No.04-財務部-會計.png',
+  5: '/images/calculator/戀愛職能測驗-No.05-行銷發展部-數位推廣.png',
+  6: '/images/calculator/戀愛職能測驗-No.06-人事部-人力 資源師.png',
+  7: '/images/calculator/戀愛職能測驗-No.07-公關部-公關.png',
+  8: '/images/calculator/戀愛職能測驗-No.08-策略發展部-策略規劃.png',
+  9: '/images/calculator/戀愛職能測驗-No.09-加盟部-加盟推廣.png',
+};
 
-/* ─── 輸入表單 ─── */
-function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date: string, time: string) => void }) {
+/* ─── 輸入表單（無時辰） ─── */
+function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date: string) => void }) {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [noTime, setNoTime] = useState(false);
 
   const canSubmit = name.trim() && date;
 
   return (
     <div className="mx-auto w-full max-w-md">
       {/* 標題 */}
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-plum md:text-4xl">
-          戀愛特質速測
-        </h1>
-        <p className="mt-2 text-sm text-plum/60">
-          輸入你的資訊，解鎖專屬戀愛密碼
-        </p>
+      <div className="rounded-t-3xl bg-gradient-to-b from-rose/20 to-rose/5 px-6 pb-4 pt-8 text-center">
+        <p className="text-xs font-medium tracking-wider text-rose">娜米的戀愛數字密碼</p>
+        <h1 className="mt-1 text-2xl font-bold text-plum">你的戀愛職能評量</h1>
       </div>
 
-      {/* 卡片表單 */}
-      <div className="rounded-3xl bg-white p-6 shadow-soft sm:p-8">
-        {/* 姓名 */}
+      {/* 表單 */}
+      <div className="rounded-b-3xl border border-t-0 border-rose/15 bg-white px-6 pb-8 pt-6 shadow-soft">
         <label className="mb-4 block">
-          <span className="mb-1 block text-sm font-semibold text-plum/80">姓名</span>
+          <span className="mb-1 block text-xs font-semibold text-plum/70">姓名</span>
           <input
             type="text"
             placeholder="請輸入姓名"
             maxLength={30}
             value={name}
             onChange={e => setName(e.target.value)}
-            className="w-full rounded-xl border border-plum/15 bg-blush/50 px-4 py-3 text-plum outline-none transition placeholder:text-plum/30 focus:border-rose/50 focus:ring-2 focus:ring-rose/20"
+            className="w-full rounded-xl border border-rose/20 bg-blush/30 px-4 py-3 text-sm text-plum outline-none transition placeholder:text-plum/30 focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
           />
         </label>
 
-        {/* 性別 */}
         <label className="mb-4 block">
-          <span className="mb-1 block text-sm font-semibold text-plum/80">性別</span>
+          <span className="mb-1 block text-xs font-semibold text-plum/70">性別</span>
           <div className="flex gap-3">
             {(['男', '女'] as const).map(g => (
               <button
@@ -131,7 +58,7 @@ function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date
                 className={`flex-1 rounded-xl border px-4 py-3 text-sm font-medium transition ${
                   gender === g
                     ? 'border-rose bg-rose/10 text-rose'
-                    : 'border-plum/15 bg-blush/50 text-plum/60 hover:border-rose/30'
+                    : 'border-rose/15 bg-blush/30 text-plum/50 hover:border-rose/30'
                 }`}
               >
                 {g}
@@ -140,168 +67,98 @@ function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date
           </div>
         </label>
 
-        {/* 生日 */}
-        <label className="mb-4 block">
-          <span className="mb-1 block text-sm font-semibold text-plum/80">出生日期（國曆）</span>
+        <label className="mb-6 block">
+          <span className="mb-1 block text-xs font-semibold text-plum/70">生日（國曆）</span>
           <input
             type="date"
             value={date}
             onChange={e => setDate(e.target.value)}
-            className="w-full rounded-xl border border-plum/15 bg-blush/50 px-4 py-3 text-plum outline-none transition placeholder:text-plum/30 focus:border-rose/50 focus:ring-2 focus:ring-rose/20"
+            className="w-full rounded-xl border border-rose/20 bg-blush/30 px-4 py-3 text-sm text-plum outline-none transition placeholder:text-plum/30 focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
           />
         </label>
 
-        {/* 時辰 */}
-        <label className={`mb-2 block ${noTime ? 'opacity-40 pointer-events-none' : ''}`}>
-          <span className="mb-1 block text-sm font-semibold text-plum/80">出生時間</span>
-          <input
-            type="time"
-            value={time}
-            onChange={e => setTime(e.target.value)}
-            disabled={noTime}
-            className="w-full rounded-xl border border-plum/15 bg-blush/50 px-4 py-3 text-plum outline-none transition placeholder:text-plum/30 focus:border-rose/50 focus:ring-2 focus:ring-rose/20"
-          />
-        </label>
-        <label className="mb-6 flex items-center gap-2 text-sm text-plum/60">
-          <input
-            type="checkbox"
-            checked={noTime}
-            onChange={() => { setNoTime(!noTime); if (!noTime) setTime(''); }}
-            className="h-4 w-4 accent-rose"
-          />
-          忘記出生時間
-        </label>
-
-        {/* 送出 */}
         <button
           type="button"
           disabled={!canSubmit}
-          onClick={() => onSubmit(name, gender, date, time)}
-          className={`w-full rounded-full py-3.5 text-base font-semibold text-white shadow-md transition ${
+          onClick={() => onSubmit(name, gender, date)}
+          className={`w-full rounded-full py-3.5 text-sm font-bold text-white shadow-md transition ${
             canSubmit
               ? 'bg-rose hover:opacity-90 active:scale-[0.98]'
               : 'cursor-not-allowed bg-plum/20'
           }`}
         >
-          產生速測表
+          產生測算表
         </button>
       </div>
     </div>
   );
 }
 
-/* ─── 結果卡片區塊 ─── */
-function InfoBlock({ label, value, accent }: { label: string; value: string; accent: string }) {
-  return (
-    <div className="rounded-2xl border border-plum/8 bg-white/80 p-4 backdrop-blur">
-      <p className="mb-1 text-xs font-semibold uppercase tracking-wider" style={{ color: accent }}>
-        {label}
-      </p>
-      <p className="whitespace-pre-line text-sm leading-relaxed text-plum/80">
-        {value}
-      </p>
-    </div>
-  );
-}
-
-/* ─── 結果頁面 ─── */
+/* ─── 結果卡片：圖片 + 名字覆蓋 ─── */
 function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () => void }) {
-  const accent = getNumberAccent(result.mainNumber);
-  const resultRef = useRef<HTMLDivElement>(null);
+  const cardSrc = CARD_IMAGES[result.mainNumber] || CARD_IMAGES[1];
 
   return (
-    <div className="mx-auto w-full max-w-lg">
-      {/* 結果卡片 */}
-      <div
-        ref={resultRef}
-        className="relative overflow-hidden rounded-3xl bg-white shadow-soft"
-      >
-        {/* 頂部漸層 banner */}
-        <div
-          className="relative flex items-center gap-4 px-6 py-6 sm:px-8"
-          style={{
-            background: `linear-gradient(135deg, ${accent}15 0%, ${accent}08 100%)`,
-          }}
-        >
-          {/* 左上角 數字圖案 */}
-          <div className="shrink-0">
-            <NumberIcon n={result.mainNumber} size={100} />
+    <div className="mx-auto w-full max-w-sm">
+      {/* 卡片圖片容器 — 只顯示上方卡片部分，裁切底部按鈕 */}
+      <div className="relative overflow-hidden rounded-3xl shadow-soft">
+        {/* 圖片：用 aspect ratio 裁切，只顯示卡片上方約 78% */}
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/16.5' }}>
+          <Image
+            src={cardSrc}
+            alt={`主命數 ${result.mainNumber} 結果卡`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 640px) 100vw, 384px"
+            priority
+          />
+
+          {/* 覆蓋「小瀨」名字位置 — 左上方 */}
+          <div
+            className="absolute flex items-center"
+            style={{
+              top: '7.8%',
+              left: '5%',
+              width: '35%',
+              height: '3.5%',
+            }}
+          >
+            {/* 底色遮蓋原本的「小瀨」 */}
+            <div
+              className="absolute inset-0 rounded"
+              style={{
+                /* 用與卡片背景相近的色塊蓋住 */
+                backgroundColor: 'inherit',
+              }}
+            />
+            {/* 使用者名字 */}
+            <span
+              className="relative z-10 font-bold leading-none text-white"
+              style={{
+                fontSize: 'clamp(14px, 4.5vw, 20px)',
+                textShadow: '0 1px 3px rgba(0,0,0,0.15)',
+              }}
+            >
+              {result.name}
+            </span>
           </div>
-
-          {/* 右側基本資訊 */}
-          <div className="min-w-0 flex-1">
-            <p className="text-xs font-medium text-plum/50">戀愛特質速測結果</p>
-            <h2 className="mt-1 text-2xl font-bold text-plum">{result.name}</h2>
-            <p className="mt-0.5 text-sm text-plum/60">
-              {result.gender && `${result.gender} · `}{result.date}
-            </p>
-            <div className="mt-3 flex items-center gap-2">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-bold text-white"
-                style={{ backgroundColor: accent }}
-              >
-                主命數 {result.mainNumber}
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-medium" style={{ borderColor: accent, color: accent }}>
-                <span
-                  className="inline-block h-2.5 w-2.5 rounded-full"
-                  style={{ backgroundColor: accent }}
-                />
-                幸運色：{result.luckyColor}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* 內容區 */}
-        <div className="grid gap-3 p-6 sm:grid-cols-2 sm:p-8">
-          <InfoBlock accent={accent} label="戀愛方式" value={result.loveStyle} />
-          <InfoBlock accent={accent} label="關鍵字" value={result.keyword} />
-          <InfoBlock accent={accent} label="特質" value={result.special} />
-          <InfoBlock accent={accent} label="地雷" value={result.mines} />
-          <div className="sm:col-span-2">
-            <InfoBlock accent={accent} label="鍛鍊功課" value={result.practice} />
-          </div>
-
-          {/* 鍛鍊數字 */}
-          {result.practiceNumbers.length > 0 && (
-            <div className="sm:col-span-2">
-              <div className="rounded-2xl border border-plum/8 bg-white/80 p-4 backdrop-blur">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider" style={{ color: accent }}>
-                  鍛鍊數字：{result.practiceNumbers.join('、')}
-                </p>
-                <div className="space-y-2">
-                  {result.practiceNumbers.map(n => (
-                    <p key={n} className="whitespace-pre-line text-xs leading-relaxed text-plum/70">
-                      {getPracticeText(n)}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* 底部品牌標記 */}
-        <div className="border-t border-plum/5 px-6 py-3 text-center text-[10px] text-plum/30">
-          SheSay 戀愛小秘書 · 彩虹數字戀愛測算
         </div>
       </div>
 
-      {/* 按鈕區 */}
+      {/* 按鈕 */}
       <div className="mt-6 flex justify-center gap-3">
         <button
           type="button"
           onClick={onBack}
           className="rounded-full border border-plum/20 px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose"
         >
-          重新測算
+          再測一次
         </button>
         <a
           href="/consult"
-          className="inline-flex items-center gap-1.5 rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:opacity-90"
+          className="inline-flex items-center rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:opacity-90"
         >
-          預約戀愛諮詢
+          立即預約戀愛諮詢
         </a>
       </div>
     </div>
@@ -312,8 +169,8 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
 export function LoveCalculator() {
   const [result, setResult] = useState<LoveNumberResult | null>(null);
 
-  const handleSubmit = (name: string, gender: string, date: string, time: string) => {
-    const r = calculateLoveNumber(name, gender, date, time);
+  const handleSubmit = (name: string, gender: string, date: string) => {
+    const r = calculateLoveNumber(name, gender, date, '');
     setResult(r);
   };
 
