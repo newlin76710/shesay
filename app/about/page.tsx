@@ -379,7 +379,7 @@ export default function AboutPage() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => { setActiveTab(tab.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  onClick={() => { window.scrollTo({ top: 0 }); setTimeout(() => setActiveTab(tab.id), 50); }}
                   className="flex flex-col items-center rounded-2xl bg-white p-4 text-center shadow-soft transition hover:-translate-y-1 sm:p-6"
                 >
                   <div className="relative h-12 w-12 sm:h-20 sm:w-20">
