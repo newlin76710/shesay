@@ -141,17 +141,17 @@ export default function PartyPage() {
               priority
             />
           </div>
-          {/* 錨點導航列 */}
-          <div className="sticky top-[57px] z-20 overflow-x-auto border-b border-plum/10 bg-white/95 backdrop-blur sm:top-[65px]" style={{ WebkitOverflowScrolling: 'touch' }}>
-            <div className="mx-auto flex max-w-6xl gap-1.5 px-3 py-2.5 sm:justify-center sm:gap-2 sm:px-6 sm:py-3">
+          {/* 錨點導航列 — 手機 4 欄 grid 換行，桌面橫排 */}
+          <div className="sticky top-[57px] z-20 border-b border-plum/10 bg-white/95 backdrop-blur sm:top-[65px]">
+            <div className="mx-auto grid max-w-6xl grid-cols-4 gap-2 px-3 py-2.5 sm:flex sm:justify-center sm:gap-2 sm:px-6 sm:py-3">
               {categories.map((cat) => (
                 <a
                   key={cat.id}
                   href={`#${cat.id}`}
-                  className="flex shrink-0 items-center gap-1 rounded-full border border-plum/15 px-3 py-1.5 text-[11px] font-semibold text-plum/70 transition hover:border-rose hover:bg-rose/5 hover:text-rose sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm"
+                  className="flex flex-col items-center gap-0.5 rounded-xl border border-plum/10 bg-white/60 px-1 py-2 text-center text-plum/70 transition hover:border-rose hover:bg-rose/5 hover:text-rose sm:flex-row sm:gap-1.5 sm:rounded-full sm:px-4 sm:py-2"
                 >
-                  <span className="text-sm leading-none sm:text-base">{categoryIcons[cat.id] || '📌'}</span>
-                  {cat.id}
+                  <span className="text-lg leading-none sm:text-base">{categoryIcons[cat.id] || '📌'}</span>
+                  <span className="text-[10px] font-semibold leading-tight sm:text-sm">{cat.id}</span>
                 </a>
               ))}
             </div>
