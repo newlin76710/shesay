@@ -106,6 +106,17 @@ const featured = [
   { title: '一對一精緻客製化專屬約會', href: '/blog/84856/', img: BASE + 'ev_d92c8926ce_1555391132.jpeg' },
 ];
 
+const categoryIcons: Record<string, string> = {
+  '娛樂遊戲': '🎮',
+  '廚藝教室': '🍳',
+  '手作體驗': '✂️',
+  '甜點烘培': '🧁',
+  '室內聚會': '🏠',
+  '戶外郊遊': '⛰️',
+  '專業講座': '📖',
+  'VIP限定': '👑',
+};
+
 const regions = ['台北', '新竹', '台中', '台南', '高雄'];
 
 const steps = [
@@ -130,11 +141,20 @@ export default function PartyPage() {
               priority
             />
           </div>
-          <div className="bg-plum py-8 text-center text-white lg:py-10">
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">聯誼派對活動</h1>
-            <p className="mt-2 text-lg font-medium text-white/80">打造魅力自我</p>
-            <p className="mt-4 text-base text-white/70">甩開冰冷螢幕，一起找回面對面的感動吧</p>
-            <p className="mt-1 text-sm text-white/60">戀愛的事更要讓專業的來</p>
+          {/* 錨點導航列 */}
+          <div className="sticky top-[65px] z-20 overflow-x-auto border-b border-plum/10 bg-white/95 backdrop-blur">
+            <div className="mx-auto flex max-w-6xl gap-1 px-4 py-3 sm:justify-center sm:gap-2 sm:px-6">
+              {categories.map((cat) => (
+                <a
+                  key={cat.id}
+                  href={`#${cat.id}`}
+                  className="flex shrink-0 items-center gap-1.5 rounded-full border border-plum/15 px-4 py-2 text-xs font-semibold text-plum/70 transition hover:border-rose hover:bg-rose/5 hover:text-rose sm:text-sm"
+                >
+                  <span className="text-base leading-none">{categoryIcons[cat.id] || '📌'}</span>
+                  {cat.id}
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -142,7 +162,7 @@ export default function PartyPage() {
         <section className="mx-auto max-w-6xl px-6 py-12 sm:px-8 lg:px-10 lg:py-16">
           <div className="space-y-14">
             {categories.map((cat) => (
-              <div key={cat.id}>
+              <div key={cat.id} id={cat.id} className="scroll-mt-32">
                 <div className="flex items-center justify-between border-b border-plum/10 pb-3">
                   <h2 className="text-2xl font-bold text-plum">{cat.id}</h2>
                 </div>

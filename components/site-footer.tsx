@@ -15,10 +15,12 @@ export function SiteFooter() {
               與戀愛小秘書交談
             </a>
           </div>
-          <div className="grid grid-cols-2 gap-3 text-sm text-white/70 sm:grid-cols-2">
-            <a href="/about" className="transition hover:text-white">關於我們</a>
+          <div className="grid grid-cols-2 gap-3 text-sm text-white/70">
             <a href="/party" className="transition hover:text-white">聯誼派對</a>
             <a href="/consult" className="transition hover:text-white">戀愛諮詢</a>
+            <a href="/podcast" className="transition hover:text-white">戀愛會社</a>
+            <a href="/about" className="transition hover:text-white">關於我們</a>
+            <a href="/advertising" className="transition hover:text-white">廣告合作</a>
             <a href="https://lin.ee/UtgCipOq" className="transition hover:text-white">官方 LINE</a>
           </div>
         </div>
