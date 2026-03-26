@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { SiteShell } from '@/components/site-shell';
 
 const BASE10 = '/images/original/shesay.com/wp-content/uploads/2023/10/';
@@ -336,10 +336,22 @@ function TabNami() {
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState('shesay');
+  const tabAnchorRef = useRef<HTMLDivElement>(null);
+
+  const switchTab = (id: string) => {
+    // 1. 先強制滾到頂（同步，不用動畫）
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0; // iOS Safari fallback
+    // 2. 再切換 tab 內容
+    setActiveTab(id);
+  };
 
   return (
     <SiteShell>
       <main className="bg-[#FBFBFB]">
+
+        {/* 滾動錨點 */}
+        <div ref={tabAnchorRef} />
 
         {/* Tab Buttons — 手機 2.5 欄 grid，桌面橫排 */}
         <section className="sticky top-[57px] z-20 border-b border-[#DFDFE2] bg-white/95 backdrop-blur sm:top-[65px]">
@@ -347,7 +359,7 @@ export default function AboutPage() {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => switchTab(tab.id)}
                 className={`flex flex-col items-center gap-1 rounded-xl px-2 py-2 font-semibold transition sm:gap-2 sm:px-6 sm:py-4 ${
                   activeTab === tab.id
                     ? 'bg-rose/10 text-rose'
@@ -379,7 +391,7 @@ export default function AboutPage() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => { window.scrollTo({ top: 0 }); setTimeout(() => setActiveTab(tab.id), 50); }}
+                  onClick={() => switchTab(tab.id)}
                   className="flex flex-col items-center rounded-2xl bg-white p-4 text-center shadow-soft transition hover:-translate-y-1 sm:p-6"
                 >
                   <div className="relative h-12 w-12 sm:h-20 sm:w-20">
