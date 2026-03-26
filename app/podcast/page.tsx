@@ -328,9 +328,7 @@ export default function PodcastPage() {
                   <h3 className="text-lg font-bold text-plum">免費測戀愛數字密碼</h3>
                   <p className="mt-3 text-sm leading-6 text-plum/70">輸入生日，立即試算你的專屬戀愛數字密碼。</p>
                   <a
-                    href="https://www.rainbownumen.org/shesay/0"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/calculator"
                     className="mt-6 inline-flex rounded-full border border-plum/20 px-6 py-3 text-sm font-semibold text-plum transition hover:border-rose/30 hover:text-rose"
                   >
                     立即試算

@@ -308,9 +308,7 @@ export default function ConsultPage() {
           <DividerHeading>戀愛數字特質免費測</DividerHeading>
           <div className="mt-6">
             <a
-              href="https://www.rainbownumen.org/shesay/0"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/calculator"
               className="inline-flex rounded-full px-10 py-4 text-sm font-semibold text-white transition hover:opacity-90"
               style={{ backgroundColor: '#f74da5' }}
             >
