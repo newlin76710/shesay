@@ -21,9 +21,13 @@ const CARD_IMAGES: Record<number, string> = {
 function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date: string) => void }) {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
-  const [date, setDate] = useState('');
+  const [birthYear, setBirthYear] = useState('');
+  const [birthMonth, setBirthMonth] = useState('');
+  const [birthDay, setBirthDay] = useState('');
 
-  const canSubmit = name.trim() && date;
+  const canSubmit = name.trim() && birthYear && birthMonth && birthDay;
+  const buildDate = () =>
+    `${birthYear}-${birthYear ? birthMonth.padStart(2, '0') : ''}-${birthYear ? birthDay.padStart(2, '0') : ''}`;
 
   return (
     <div className="mx-auto w-full max-w-md">
@@ -67,20 +71,55 @@ function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date
           </div>
         </label>
 
-        <label className="mb-6 block">
+        <div className="mb-6">
           <span className="mb-1 block text-xs font-semibold text-plum/70">生日（國曆）</span>
-          <input
-            type="date"
-            value={date}
-            onChange={e => setDate(e.target.value)}
-            className="w-full rounded-xl border border-rose/20 bg-blush/30 px-4 py-3 text-sm text-plum outline-none transition placeholder:text-plum/30 focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
-          />
-        </label>
+          <div className="grid grid-cols-3 gap-2">
+            {/* 年 */}
+            <div>
+              <select
+                value={birthYear}
+                onChange={e => setBirthYear(e.target.value)}
+                className="w-full appearance-none rounded-xl border border-rose/20 bg-blush/30 px-3 py-3 text-center text-sm text-plum outline-none transition focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
+              >
+                <option value="">年</option>
+                {Array.from({ length: 80 }, (_, i) => new Date().getFullYear() - i).map(y => (
+                  <option key={y} value={String(y)}>{y}</option>
+                ))}
+              </select>
+            </div>
+            {/* 月 */}
+            <div>
+              <select
+                value={birthMonth}
+                onChange={e => setBirthMonth(e.target.value)}
+                className="w-full appearance-none rounded-xl border border-rose/20 bg-blush/30 px-3 py-3 text-center text-sm text-plum outline-none transition focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
+              >
+                <option value="">月</option>
+                {Array.from({ length: 12 }, (_, i) => i + 1).map(m => (
+                  <option key={m} value={String(m)}>{m} 月</option>
+                ))}
+              </select>
+            </div>
+            {/* 日 */}
+            <div>
+              <select
+                value={birthDay}
+                onChange={e => setBirthDay(e.target.value)}
+                className="w-full appearance-none rounded-xl border border-rose/20 bg-blush/30 px-3 py-3 text-center text-sm text-plum outline-none transition focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
+              >
+                <option value="">日</option>
+                {Array.from({ length: 31 }, (_, i) => i + 1).map(d => (
+                  <option key={d} value={String(d)}>{d} 日</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
 
         <button
           type="button"
           disabled={!canSubmit}
-          onClick={() => onSubmit(name, gender, date)}
+          onClick={() => onSubmit(name, gender, buildDate())}
           className={`w-full rounded-full py-3.5 text-sm font-bold text-white shadow-md transition ${
             canSubmit
               ? 'bg-rose hover:opacity-90 active:scale-[0.98]'
