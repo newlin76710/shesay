@@ -21,3 +21,26 @@ body {
 ::selection {
   background: rgba(255, 92, 138, 0.2);
 }
+
+/* Swiper overrides for podcast page */
+.podcast-swiper .swiper-button-next,
+.podcast-swiper .swiper-button-prev {
+  color: #5b2145;
+  background: rgba(255, 255, 255, 0.85);
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.podcast-swiper .swiper-button-next::after,
+.podcast-swiper .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+.podcast-swiper .swiper-pagination-bullet-active {
+  background: #ff5c8a;
+}
+.podcast-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 20px;
+}
