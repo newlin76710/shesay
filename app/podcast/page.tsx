@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
 import { FadeIn } from '@/components/fade-in';
 import { VideoSwiper } from '@/components/video-swiper';
+import { loveokArticles } from '@/lib/loveok-articles';
 
 const BASE = '/images/original/shesay.com/wp-content/uploads/2023/10/';
 
@@ -51,17 +52,8 @@ const features = [
   },
 ];
 
-const episodes = [
-  { title: '今天是我們的戀愛會社', src: BASE + 'ep2-01-今天是我們的戀愛會社.jpg' },
-  { title: '想知道自己喜歡哪一型的女生', src: BASE + 'ep2-02-想知道自己喜歡哪一型的女生.jpg' },
-  { title: '主要是沒自信的問題', src: BASE + 'ep2-03-主要是沒自信的問題.jpg' },
-  { title: '生日的彩虹數字', src: BASE + 'ep2-04-生日的彩虹數字.jpg' },
-  { title: '愛情的靈魂等級很高', src: BASE + 'ep2-05愛情的靈魂等級很高.jpg' },
-  { title: '身心靈三年', src: BASE + 'ep2-06-身心靈三年.jpg' },
-  { title: '今年走到位格一', src: BASE + 'ep2-07-今年走到位格一.jpg' },
-  { title: '第一年轉角年', src: BASE + 'ep2-08-第一年轉角年.jpg' },
-  { title: '流年剛好在突破點', src: BASE + 'ep2-09-流年剛好在突破點.jpg' },
-];
+/* loveok articles imported from lib */
+const loveokList = Object.entries(loveokArticles).map(([id, a]) => ({ id, title: a.title, heroImage: a.heroImage }));
 
 const codeHelps = [
   { num: '1', title: '展開戀愛藍圖', desc: '每個人出生時都帶有一組戀愛數字密碼，我會帶你看出寫在你生日密碼中，關於戀愛的藍圖是什麼？' },
@@ -203,22 +195,36 @@ export default function PodcastPage() {
           </div>
         </section>
 
-        {/* 誠徵社員戀愛煩惱 — 3×3 */}
+        {/* 戀愛會社文章 */}
         <section className="py-16 lg:py-20">
           <div className="mx-auto max-w-[1290px] px-6 sm:px-8 lg:px-10">
             <FadeIn>
-              <h2 className="text-center text-3xl font-bold tracking-tight text-plum">誠徵社員戀愛煩惱</h2>
-              <p className="mt-2 text-center text-base text-plum/70">從你的生日我們發現</p>
+              <h2 className="text-center text-3xl font-bold tracking-tight text-plum">戀愛會社文章</h2>
+              <p className="mt-2 text-center text-base text-plum/70">透過彩虹數字解析名人與素人的戀愛密碼</p>
             </FadeIn>
-            <div className="mt-12 grid grid-cols-3 gap-4">
-              {episodes.map((ep) => (
-                <FadeIn key={ep.title}>
-                  <div className="relative aspect-square overflow-hidden rounded-lg">
-                    <Image src={ep.src} alt={ep.title} fill className="object-cover" sizes="(max-width: 768px) 33vw, 33vw" />
-                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/50 to-transparent p-4">
-                      <p className="text-sm font-semibold text-white">{ep.title}</p>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+              {loveokList.map((item) => (
+                <FadeIn key={item.id}>
+                  <a
+                    href={`/loveok/${item.id}`}
+                    className="group overflow-hidden rounded-2xl bg-white shadow-soft transition hover:shadow-lg"
+                  >
+                    {item.heroImage && (
+                      <div className="relative aspect-video overflow-hidden">
+                        <Image
+                          src={item.heroImage}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition duration-300 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
+                    <div className="p-4">
+                      <p className="line-clamp-2 text-sm font-semibold text-plum">{item.title}</p>
+                      <p className="mt-2 text-xs font-medium text-rose">閱讀文章 »</p>
                     </div>
-                  </div>
+                  </a>
                 </FadeIn>
               ))}
             </div>
