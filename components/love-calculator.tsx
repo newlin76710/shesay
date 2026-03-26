@@ -99,44 +99,33 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
   const cardSrc = CARD_IMAGES[result.mainNumber] || CARD_IMAGES[1];
 
   return (
-    <div className="mx-auto w-full max-w-sm">
+    <div className="mx-auto w-full max-w-[576px]">
       {/* 卡片圖片容器 — 只顯示上方卡片部分，裁切底部按鈕 */}
       <div className="relative overflow-hidden rounded-3xl shadow-soft">
-        {/* 圖片：用 aspect ratio 裁切，只顯示卡片上方約 78% */}
-        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/16.5' }}>
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/16.2' }}>
           <Image
             src={cardSrc}
             alt={`主命數 ${result.mainNumber} 結果卡`}
             fill
             className="object-cover object-top"
-            sizes="(max-width: 640px) 100vw, 384px"
+            sizes="(max-width: 640px) 100vw, 576px"
             priority
           />
 
-          {/* 覆蓋「小瀨」名字位置 — 左上方 */}
+          {/* 覆蓋「小瀨」— 在姓名框內 */}
           <div
             className="absolute flex items-center"
             style={{
-              top: '7.8%',
-              left: '5%',
-              width: '35%',
-              height: '3.5%',
+              top: '6.6%',
+              left: '4.5%',
+              width: '22%',
+              height: '2.8%',
             }}
           >
-            {/* 底色遮蓋原本的「小瀨」 */}
-            <div
-              className="absolute inset-0 rounded"
-              style={{
-                /* 用與卡片背景相近的色塊蓋住 */
-                backgroundColor: 'inherit',
-              }}
-            />
-            {/* 使用者名字 */}
             <span
-              className="relative z-10 font-bold leading-none text-white"
+              className="font-bold leading-none text-[#333]"
               style={{
-                fontSize: 'clamp(14px, 4.5vw, 20px)',
-                textShadow: '0 1px 3px rgba(0,0,0,0.15)',
+                fontSize: 'clamp(13px, 3.2vw, 22px)',
               }}
             >
               {result.name}
