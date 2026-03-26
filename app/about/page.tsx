@@ -123,11 +123,11 @@ function TabSheSay() {
         <p className="text-sm font-semibold uppercase tracking-widest text-rose">網站發展重要里程</p>
         <h3 className="mt-1 text-2xl font-bold text-plum">華人女性社群網站</h3>
         <p className="mt-1 text-sm text-plum/60">1999.10.15 SheSay.com 上線</p>
-        <div className="mt-6 grid grid-cols-5 gap-3">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
           {channels.map((ch) => (
             <div key={ch.name} className="text-center">
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-white shadow-soft">
-                <Image src={ch.img} alt={ch.name} fill className="object-contain p-1" sizes="120px" />
+                <Image src={ch.img} alt={ch.name} fill className="object-contain p-1" sizes="(max-width: 640px) 50vw, 120px" />
               </div>
               <p className="mt-1 text-xs text-plum/70">{ch.name}</p>
             </div>
@@ -142,10 +142,10 @@ function TabSheSay() {
         <p className="mt-4 text-sm leading-7 text-[#54595F]">
           2000年推出「上網養男人」，創造每日60萬 page views 高流量話題；2003年6月推出「手機養男人」，以女性為主導設條件尋找理想對象。2023年9月轉型為女性友善的交友平台。
         </p>
-        <div className="mt-6 grid grid-cols-4 gap-3">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[BASE11 + 'b拷貝3.jpg', BASE11 + 'a-1.jpg', BASE11 + 'c拷貝.jpg', BASE11 + 'd拷貝-1.jpg'].map((src) => (
             <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-soft">
-              <Image src={src} alt="養個男人來消遣" fill className="object-cover" sizes="25vw" />
+              <Image src={src} alt="養個男人來消遣" fill className="object-cover" sizes="(max-width: 640px) 50vw, 25vw" />
             </div>
           ))}
         </div>
@@ -167,7 +167,7 @@ function TabSheSay() {
         <p className="mt-4 text-sm leading-7 text-[#54595F]">
           明星聊天室邀請眾多知名藝人在線上與粉絲互動，引爆話題。參與藝人包括周湯豪、王心凌、羅志祥、蕭亞軒、方大同、謝和弦、郭采潔、蕭敬騰、徐佳瑩、盧廣仲等。2023年轉型為 KOL 網紅媒合平台。
         </p>
-        <div className="mt-6 grid grid-cols-6 gap-2 sm:grid-cols-8 md:grid-cols-11">
+        <div className="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-11">
           {celebrities.map((name) => (
             <div key={name} className="text-center">
               <div className="relative aspect-square overflow-hidden rounded-lg shadow-soft">
@@ -199,10 +199,10 @@ function TabChatroom() {
   return (
     <div className="space-y-8">
       <h3 className="text-2xl font-bold text-plum">尋夢園是全台最大聊天室、匿名聊天平台，擁有百萬會員及各種豐富有趣的主題聊天室</h3>
-      <div className="flex items-center gap-6">
+      <div className="flex items-center">
         <div className="text-center">
-          <p className="text-3xl font-bold text-rose">3,125,493</p>
-          <p className="text-sm text-plum/60">總會員人數突破3百萬人</p>
+          <p className="text-2xl font-bold text-rose sm:text-3xl">3,125,493</p>
+          <p className="text-xs text-plum/60 sm:text-sm">總會員人數突破3百萬人</p>
         </div>
       </div>
       <p className="text-sm leading-8 text-[#54595F]">
@@ -225,14 +225,14 @@ function TabNews() {
   return (
     <div className="space-y-8">
       <h3 className="text-2xl font-bold text-plum">尋夢新聞掌握線上消費的高精華族群，每月造訪 500萬人次</h3>
-      <div className="flex gap-8">
+      <div className="flex flex-wrap gap-4 sm:gap-8">
         <div className="text-center">
-          <p className="text-3xl font-bold text-rose">500萬</p>
-          <p className="text-sm text-plum/60">單月瀏覽量</p>
+          <p className="text-2xl font-bold text-rose sm:text-3xl">500萬</p>
+          <p className="text-xs text-plum/60 sm:text-sm">單月瀏覽量</p>
         </div>
         <div className="text-center">
-          <p className="text-3xl font-bold text-rose">310萬</p>
-          <p className="text-sm text-plum/60">單月不重複使用者</p>
+          <p className="text-2xl font-bold text-rose sm:text-3xl">310萬</p>
+          <p className="text-xs text-plum/60 sm:text-sm">單月不重複使用者</p>
         </div>
       </div>
       <p className="text-sm leading-8 text-[#54595F]">
@@ -261,10 +261,10 @@ function TabNews() {
 function TabEros() {
   return (
     <div className="space-y-8">
-      <div className="flex flex-wrap gap-8">
-        <div className="text-center"><p className="text-3xl font-bold text-rose">1,013</p><p className="text-sm text-plum/60">聯誼派對（場）</p></div>
-        <div className="text-center"><p className="text-3xl font-bold text-rose">103,089</p><p className="text-sm text-plum/60">單身會員（位）</p></div>
-        <div className="text-center"><p className="text-3xl font-bold text-rose">724</p><p className="text-sm text-plum/60">戀愛講座（場）</p></div>
+      <div className="grid grid-cols-3 gap-3 sm:flex sm:gap-8">
+        <div className="text-center"><p className="text-xl font-bold text-rose sm:text-3xl">1,013</p><p className="text-[10px] text-plum/60 sm:text-sm">聯誼派對（場）</p></div>
+        <div className="text-center"><p className="text-xl font-bold text-rose sm:text-3xl">103,089</p><p className="text-[10px] text-plum/60 sm:text-sm">單身會員（位）</p></div>
+        <div className="text-center"><p className="text-xl font-bold text-rose sm:text-3xl">724</p><p className="text-[10px] text-plum/60 sm:text-sm">戀愛講座（場）</p></div>
       </div>
       <p className="text-sm leading-8 text-[#54595F]">
         eros主題派對 (<a href="https://eros.ek21.com" target="_blank" rel="noopener noreferrer" className="text-rose underline">eros.ek21.com</a>) 提供上班族下班後充實自己的活動，希望大家來參加活動後都可以成功交到「新朋友」！活動主打溫馨氣息，希望能像在家般輕鬆愉快且自在。
@@ -341,30 +341,30 @@ export default function AboutPage() {
     <SiteShell>
       <main className="bg-[#FBFBFB]">
 
-        {/* Tab Buttons */}
-        <section className="sticky top-[65px] z-20 border-b border-[#DFDFE2] bg-white/95 backdrop-blur">
-          <div className="mx-auto flex max-w-5xl justify-center gap-2 overflow-x-auto px-6 py-2 sm:px-8">
+        {/* Tab Buttons — 手機 2.5 欄 grid，桌面橫排 */}
+        <section className="sticky top-[57px] z-20 border-b border-[#DFDFE2] bg-white/95 backdrop-blur sm:top-[65px]">
+          <div className="mx-auto grid max-w-5xl grid-cols-3 gap-1.5 px-3 py-2 sm:flex sm:justify-center sm:gap-2 sm:px-8 sm:py-2">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex shrink-0 flex-col items-center gap-2 rounded-xl px-6 py-4 font-semibold transition ${
+                className={`flex flex-col items-center gap-1 rounded-xl px-2 py-2 font-semibold transition sm:gap-2 sm:px-6 sm:py-4 ${
                   activeTab === tab.id
                     ? 'bg-rose/10 text-rose'
                     : 'text-plum/60 hover:bg-blush hover:text-plum'
                 }`}
               >
-                <div className="relative h-20 w-20">
-                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="80px" />
+                <div className="relative h-10 w-10 sm:h-20 sm:w-20">
+                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="(max-width: 640px) 40px, 80px" />
                 </div>
-                <span className="text-sm">{tab.label}</span>
+                <span className="text-[10px] leading-tight sm:text-sm">{tab.label}</span>
               </button>
             ))}
           </div>
         </section>
 
         {/* Tab Content */}
-        <section className="mx-auto max-w-5xl px-6 py-12 sm:px-8">
+        <section className="mx-auto max-w-5xl px-4 py-8 sm:px-8 sm:py-12">
           {activeTab === 'shesay' && <TabSheSay />}
           {activeTab === 'chatroom' && <TabChatroom />}
           {activeTab === 'news' && <TabNews />}
@@ -372,20 +372,20 @@ export default function AboutPage() {
           {activeTab === 'nami' && <TabNami />}
         </section>
 
-        {/* Bottom Brand Nav */}
-        <section className="bg-white/70 py-12">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8">
-            <div className="grid grid-cols-5 gap-4">
+        {/* Bottom Brand Nav — 手機 2 欄換行，桌面 5 欄 */}
+        <section className="bg-white/70 py-8 sm:py-12">
+          <div className="mx-auto max-w-5xl px-4 sm:px-8">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 sm:gap-4">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => { setActiveTab(tab.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-soft transition hover:-translate-y-1"
+                  className="flex flex-col items-center rounded-2xl bg-white p-4 text-center shadow-soft transition hover:-translate-y-1 sm:p-6"
                 >
-                  <div className="relative h-20 w-20">
-                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="80px" />
+                  <div className="relative h-12 w-12 sm:h-20 sm:w-20">
+                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="(max-width: 640px) 48px, 80px" />
                   </div>
-                  <p className="mt-3 text-sm font-bold text-plum">{tab.label}</p>
+                  <p className="mt-2 text-xs font-bold text-plum sm:mt-3 sm:text-sm">{tab.label}</p>
                 </button>
               ))}
             </div>
