@@ -82,7 +82,7 @@ function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date
                 className="w-full appearance-none rounded-xl border border-rose/20 bg-blush/30 px-3 py-3 text-center text-sm text-plum outline-none transition focus:border-rose/50 focus:ring-2 focus:ring-rose/15"
               >
                 <option value="">年</option>
-                {Array.from({ length: 80 }, (_, i) => new Date().getFullYear() - i).map(y => (
+                {Array.from({ length: 140 }, (_, i) => new Date().getFullYear() - i).map(y => (
                   <option key={y} value={String(y)}>{y}</option>
                 ))}
               </select>
