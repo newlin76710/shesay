@@ -341,31 +341,23 @@ export default function AboutPage() {
     <SiteShell>
       <main className="bg-[#FBFBFB]">
 
-        {/* Hero */}
-        <section className="mx-auto max-w-5xl px-6 py-12 sm:px-8 lg:py-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-rose">SheSay 尋夢園聊天室 尋夢新聞 eros主題派對 戀愛小秘書娜米</p>
-          <p className="mt-6 max-w-3xl text-sm leading-8 text-[#54595F]">
-            SheSay，不僅是全台最資深的女性社群網站，更是一個專為女性打造的獨特平台。自1999年10月15日上線以來，我們一直致力於為女性提供一個安全、溫馨的環境，讓女生們可以在這裡自由表達自己、提升魅力，解決各種戀愛難題，最終找到理想中的戀愛對象。
-          </p>
-        </section>
-
         {/* Tab Buttons */}
         <section className="sticky top-[65px] z-20 border-b border-[#DFDFE2] bg-white/95 backdrop-blur">
-          <div className="mx-auto flex max-w-5xl gap-1 overflow-x-auto px-6 sm:px-8">
+          <div className="mx-auto flex max-w-5xl justify-center gap-2 overflow-x-auto px-6 py-2 sm:px-8">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex shrink-0 items-center gap-2 border-b-2 px-4 py-3 text-sm font-semibold transition ${
+                className={`flex shrink-0 flex-col items-center gap-1 rounded-xl px-5 py-3 text-sm font-semibold transition ${
                   activeTab === tab.id
-                    ? 'border-rose text-rose'
-                    : 'border-transparent text-plum/60 hover:text-plum'
+                    ? 'bg-rose/10 text-rose'
+                    : 'text-plum/60 hover:bg-blush hover:text-plum'
                 }`}
               >
-                <div className="relative h-6 w-6">
-                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="24px" />
+                <div className="relative h-10 w-10">
+                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="40px" />
                 </div>
-                <span className="hidden sm:inline">{tab.label}</span>
+                <span className="text-xs">{tab.label}</span>
               </button>
             ))}
           </div>
