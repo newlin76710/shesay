@@ -206,7 +206,7 @@ function TabChatroom() {
         </div>
       </div>
       <p className="text-sm leading-8 text-[#54595F]">
-        尋夢園聊天室 (ek21.com) 是台灣最早成立的網路聊天室，1996年發展出聊天聯盟，讓會員們互動、唱歌、盡情分享自我的平台。2013年由留美歸國的娜米接手經營，進行商業模式轉型，將尋夢園聊天室轉型為婚戀交友平台，相繼推出：明星聊天室、SheSay女性媒體、eros主題派對、尋夢新聞、戀愛小秘書...等網站平台。娜米是二代創業家，致力於讓尋夢園集團品牌有更好的發展。
+        尋夢園聊天室 (<a href="https://ek21.com/" target="_blank" rel="noopener noreferrer" className="text-rose underline">ek21.com</a>) 是台灣最早成立的網路聊天室，1996年發展出聊天聯盟，讓會員們互動、唱歌、盡情分享自我的平台。2013年由留美歸國的娜米接手經營，進行商業模式轉型，將尋夢園聊天室轉型為婚戀交友平台，相繼推出：明星聊天室、SheSay女性媒體、eros主題派對、尋夢新聞、戀愛小秘書...等網站平台。娜米是二代創業家，致力於讓尋夢園集團品牌有更好的發展。
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="relative aspect-[1024/424] overflow-hidden rounded-lg shadow-soft">
@@ -236,7 +236,7 @@ function TabNews() {
         </div>
       </div>
       <p className="text-sm leading-8 text-[#54595F]">
-        尋夢新聞 (ek21.com/news/) 以新聞時事娛樂內容為主，具有「社群、行動、溝通」的新聞社群媒體，集合時下最流行的發燒話題，在各個社群平台推播議題讓話題持續擴散，期望能為上班族篩選出最優良的新聞，提供最有質量的內容給大眾閱讀。
+        尋夢新聞 (<a href="https://ek21.com/news/" target="_blank" rel="noopener noreferrer" className="text-rose underline">ek21.com/news/</a>) 以新聞時事娛樂內容為主，具有「社群、行動、溝通」的新聞社群媒體，集合時下最流行的發燒話題，在各個社群平台推播議題讓話題持續擴散，期望能為上班族篩選出最優良的新聞，提供最有質量的內容給大眾閱讀。
       </p>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
         {newsCategories.map((c) => (
@@ -267,7 +267,7 @@ function TabEros() {
         <div className="text-center"><p className="text-3xl font-bold text-rose">724</p><p className="text-sm text-plum/60">戀愛講座（場）</p></div>
       </div>
       <p className="text-sm leading-8 text-[#54595F]">
-        eros主題派對 (erosparty.club) 提供上班族下班後充實自己的活動，希望大家來參加活動後都可以成功交到「新朋友」！活動主打溫馨氣息，希望能像在家般輕鬆愉快且自在。
+        eros主題派對 (<a href="https://eros.ek21.com" target="_blank" rel="noopener noreferrer" className="text-rose underline">eros.ek21.com</a>) 提供上班族下班後充實自己的活動，希望大家來參加活動後都可以成功交到「新朋友」！活動主打溫馨氣息，希望能像在家般輕鬆愉快且自在。
       </p>
       <p className="text-sm leading-8 text-[#54595F]">
         eros主題派對與許多活動類型廠商合作，例如：料理廚房、桌遊店、品酒店、Tango舞會、手作體驗課程 等等，活動主辦單位經過審核後，將活動上架到eros平台，並加入聯誼元素，每月都固定舉辦多場次的聯誼活動，讓單身上班族可自由選擇參加。
@@ -278,7 +278,7 @@ function TabEros() {
       <div className="relative aspect-[1024/842] max-w-2xl overflow-hidden rounded-lg shadow-soft">
         <Image src={BASE11 + '截圖-2023-11-14-上午10.36.24-2048x1685.jpg'} alt="eros主題派對" fill className="object-cover" sizes="100vw" />
       </div>
-      <a href="https://erosparty.club" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">前往eros主題派對</a>
+      <a href="https://eros.ek21.com" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">前往eros主題派對</a>
     </div>
   );
 }
