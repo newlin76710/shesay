@@ -107,11 +107,47 @@ export default function HomePage() {
             SheSay 幫妳安排心動約會
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {['高度客製化服務', '大數據配對分析', '豐富的單身聯誼活動'].map((t) => (
-              <div key={t} className="rounded-2xl bg-white p-6 text-center shadow-soft transition hover:-translate-y-1">
-                <p className="text-base font-semibold text-plum">{t}</p>
-              </div>
-            ))}
+            {/* 高度客製化服務 */}
+            <div className="flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-soft transition hover:-translate-y-1">
+              <svg className="mb-4 h-12 w-12 text-rose" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M24 4C18 4 13 9 13 15c0 8 11 17 11 17s11-9 11-17c0-6-5-11-11-11z" fill="currentColor" opacity="0.15" />
+                <path d="M24 4C18 4 13 9 13 15c0 8 11 17 11 17s11-9 11-17c0-6-5-11-11-11z" />
+                <circle cx="24" cy="15" r="4" />
+                <path d="M8 40h32" strokeDasharray="2 3" />
+                <path d="M14 44h20" strokeDasharray="2 3" />
+              </svg>
+              <p className="text-base font-semibold text-plum">高度客製化服務</p>
+            </div>
+
+            {/* 大數據配對分析 */}
+            <div className="flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-soft transition hover:-translate-y-1">
+              <svg className="mb-4 h-12 w-12 text-rose" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="4" y="24" width="8" height="18" rx="2" fill="currentColor" opacity="0.15" />
+                <rect x="16" y="16" width="8" height="26" rx="2" fill="currentColor" opacity="0.15" />
+                <rect x="28" y="8" width="8" height="34" rx="2" fill="currentColor" opacity="0.15" />
+                <rect x="4" y="24" width="8" height="18" rx="2" />
+                <rect x="16" y="16" width="8" height="26" rx="2" />
+                <rect x="28" y="8" width="8" height="34" rx="2" />
+                <circle cx="40" cy="12" r="4" fill="currentColor" opacity="0.3" stroke="currentColor" />
+                <path d="M8 20l12-6 12-4 8-2" />
+              </svg>
+              <p className="text-base font-semibold text-plum">大數據配對分析</p>
+            </div>
+
+            {/* 豐富的單身聯誼活動 */}
+            <div className="flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-soft transition hover:-translate-y-1">
+              <svg className="mb-4 h-12 w-12 text-rose" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="16" cy="14" r="6" fill="currentColor" opacity="0.15" />
+                <circle cx="32" cy="14" r="6" fill="currentColor" opacity="0.15" />
+                <circle cx="16" cy="14" r="6" />
+                <circle cx="32" cy="14" r="6" />
+                <path d="M4 38c0-6.627 5.373-12 12-12h2" fill="none" />
+                <path d="M30 26h2c6.627 0 12 5.373 12 12" fill="none" />
+                <path d="M20 30l4 4 4-4" />
+                <path d="M24 34v8" />
+              </svg>
+              <p className="text-base font-semibold text-plum">豐富的單身聯誼活動</p>
+            </div>
           </div>
         </section>
 
