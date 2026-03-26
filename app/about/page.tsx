@@ -348,16 +348,16 @@ export default function AboutPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex shrink-0 flex-col items-center gap-1 rounded-xl px-5 py-3 text-sm font-semibold transition ${
+                className={`flex shrink-0 flex-col items-center gap-2 rounded-xl px-6 py-4 font-semibold transition ${
                   activeTab === tab.id
                     ? 'bg-rose/10 text-rose'
                     : 'text-plum/60 hover:bg-blush hover:text-plum'
                 }`}
               >
-                <div className="relative h-10 w-10">
-                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="40px" />
+                <div className="relative h-14 w-14">
+                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="56px" />
                 </div>
-                <span className="text-xs">{tab.label}</span>
+                <span className="text-sm">{tab.label}</span>
               </button>
             ))}
           </div>
@@ -379,13 +379,13 @@ export default function AboutPage() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => { setActiveTab(tab.id); window.scrollTo({ top: 300, behavior: 'smooth' }); }}
-                  className="flex flex-col items-center rounded-2xl bg-white p-4 text-center shadow-soft transition hover:-translate-y-1"
+                  onClick={() => { setActiveTab(tab.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-soft transition hover:-translate-y-1"
                 >
-                  <div className="relative h-12 w-12">
-                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="48px" />
+                  <div className="relative h-16 w-16">
+                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="64px" />
                   </div>
-                  <p className="mt-2 text-xs font-bold text-plum">{tab.label}</p>
+                  <p className="mt-3 text-sm font-bold text-plum">{tab.label}</p>
                 </button>
               ))}
             </div>
