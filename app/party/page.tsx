@@ -119,11 +119,23 @@ export default function PartyPage() {
     <SiteShell>
       <main>
         {/* Hero */}
-        <section className="bg-plum py-16 text-center text-white lg:py-20">
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">聯誼派對活動</h1>
-          <p className="mt-2 text-lg font-medium text-white/80">打造魅力自我</p>
-          <p className="mt-4 text-base text-white/70">甩開冰冷螢幕，一起找回面對面的感動吧</p>
-          <p className="mt-1 text-sm text-white/60">戀愛的事更要讓專業的來</p>
+        <section>
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/5' }}>
+            <Image
+              src="/images/banners/banner-party.png"
+              alt="聯誼派對活動"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          </div>
+          <div className="bg-plum py-8 text-center text-white lg:py-10">
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">聯誼派對活動</h1>
+            <p className="mt-2 text-lg font-medium text-white/80">打造魅力自我</p>
+            <p className="mt-4 text-base text-white/70">甩開冰冷螢幕，一起找回面對面的感動吧</p>
+            <p className="mt-1 text-sm text-white/60">戀愛的事更要讓專業的來</p>
+          </div>
         </section>
 
         {/* 活動類別 */}
