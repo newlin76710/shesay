@@ -131,7 +131,7 @@ export default function PartyPage() {
       <main>
         {/* Hero */}
         <section>
-          <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
+          <a href="https://lin.ee/UtgCipOq" className="relative block w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
             <Image
               src="/images/banners/banner-party.png"
               alt="聯誼派對活動"
@@ -140,7 +140,7 @@ export default function PartyPage() {
               sizes="100vw"
               priority
             />
-          </div>
+          </a>
           {/* 錨點導航列 — 手機 4 欄 grid 換行，桌面橫排 */}
           <div className="sticky top-[57px] z-20 border-b border-plum/10 bg-white/95 backdrop-blur sm:top-[65px]">
             <div className="mx-auto grid max-w-6xl grid-cols-4 gap-2 px-3 py-2.5 sm:flex sm:justify-center sm:gap-2 sm:px-6 sm:py-3">
