@@ -339,11 +339,16 @@ export default function AboutPage() {
   const tabAnchorRef = useRef<HTMLDivElement>(null);
 
   const switchTab = (id: string) => {
-    // 1. 先強制滾到頂（同步，不用動畫）
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0; // iOS Safari fallback
-    // 2. 再切換 tab 內容
     setActiveTab(id);
+    // 等新內容渲染完成後，再強制回頂
+    setTimeout(() => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 0);
+    setTimeout(() => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 100);
   };
 
   return (
