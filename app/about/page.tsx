@@ -354,8 +354,8 @@ export default function AboutPage() {
                     : 'text-plum/60 hover:bg-blush hover:text-plum'
                 }`}
               >
-                <div className="relative h-14 w-14">
-                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="56px" />
+                <div className="relative h-20 w-20">
+                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="80px" />
                 </div>
                 <span className="text-sm">{tab.label}</span>
               </button>
@@ -382,8 +382,8 @@ export default function AboutPage() {
                   onClick={() => { setActiveTab(tab.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-soft transition hover:-translate-y-1"
                 >
-                  <div className="relative h-16 w-16">
-                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="64px" />
+                  <div className="relative h-20 w-20">
+                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="80px" />
                   </div>
                   <p className="mt-3 text-sm font-bold text-plum">{tab.label}</p>
                 </button>
