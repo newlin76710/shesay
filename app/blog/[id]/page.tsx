@@ -7,14 +7,16 @@ export function generateStaticParams() {
   return Object.keys(articles).map((id) => ({ id }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
-  const article = articles[params.id];
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const article = articles[id];
   if (!article) return {};
   return { title: `${article.title} — SheSay` };
 }
 
-export default function BlogPage({ params }: { params: { id: string } }) {
-  const article: Article | undefined = articles[params.id];
+export default async function BlogPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const article: Article | undefined = articles[id];
   if (!article) notFound();
 
   return (
