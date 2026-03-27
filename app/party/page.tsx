@@ -141,7 +141,7 @@ export default function PartyPage() {
       <main>
         {/* Hero */}
         <section>
-          <a href="https://lin.ee/UtgCipOq" className="relative block w-full overflow-hidden" style={{ height: '425px' }}>
+          <a href="https://lin.ee/UtgCipOq" className="relative block w-full overflow-hidden aspect-[2553/945]">
             <Image
               src="/images/banners/banner-party.png"
               alt="聯誼派對活動"
