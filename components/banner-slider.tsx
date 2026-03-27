@@ -25,11 +25,16 @@ export function BannerSlider() {
   const next = () => setCurrent((c) => (c + 1) % slides.length);
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: '425px' }}>
+    <div className="relative w-full overflow-hidden" style={{ height: '425px' }} role="region" aria-roledescription="輪播" aria-label="首頁橫幅輪播">
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        第 {current + 1} 張，共 {slides.length} 張：{slides[current].alt}
+      </div>
       {slides.map((slide, i) => (
         <a
           key={slide.src}
           href={slide.href}
+          aria-hidden={i !== current}
+          tabIndex={i === current ? 0 : -1}
           className={`absolute inset-0 transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <Image

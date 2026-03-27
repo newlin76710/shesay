@@ -8,7 +8,7 @@ export function FloatingSidebar() {
   };
 
   return (
-    <div className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-0">
+    <div className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-0" role="complementary" aria-label="快速連結">
       <Link
         href="/consult"
         onClick={handleClick}

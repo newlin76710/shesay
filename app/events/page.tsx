@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import { ImageCard } from '@/components/image-card';
 import { PageHero } from '@/components/page-hero';
 import { SiteShell } from '@/components/site-shell';
+
+export const metadata: Metadata = {
+  title: '活動總覽',
+  description: 'SheSay 提供主題單身派對、戶外活動、手作體驗等多元聯誼活動，讓妳在輕鬆氛圍中自然認識異性。',
+  openGraph: {
+    title: '活動總覽 — SheSay',
+    description: 'SheSay 多元單身聯誼活動——主題派對、戶外活動、手作體驗，輕鬆認識異性。',
+  },
+};
 
 const eventTypes = [
   {

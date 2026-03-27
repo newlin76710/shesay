@@ -30,7 +30,7 @@ export function SiteHeader() {
         </a>
 
         {/* 桌面版導航 */}
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="主導航">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -56,7 +56,9 @@ export function SiteHeader() {
             type="button"
             onClick={() => setOpen(!open)}
             className="relative flex h-10 w-10 items-center justify-center rounded-lg text-plum transition hover:bg-plum/5 lg:hidden"
-            aria-label="開啟選單"
+            aria-label={open ? '關閉選單' : '開啟選單'}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             <svg
               className="h-6 w-6"
@@ -79,7 +81,7 @@ export function SiteHeader() {
 
       {/* 手機版展開選單 */}
       {open && (
-        <div className="border-t border-[#f1d9df] bg-white lg:hidden">
+        <div id="mobile-menu" className="border-t border-[#f1d9df] bg-white lg:hidden" role="navigation" aria-label="手機版導航">
           <nav className="mx-auto max-w-6xl px-6 py-4">
             {navItems.map((item) => (
               <a

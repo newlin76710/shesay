@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
+
+export const metadata: Metadata = {
+  title: '戀愛諮詢',
+  description: 'SheSay 戀愛數字密碼諮詢——透過生日密碼解讀戀愛藍圖，預約娜米老師一對一諮詢，找到屬於妳的幸福。',
+  openGraph: {
+    title: '戀愛諮詢 — SheSay',
+    description: 'SheSay 戀愛數字密碼諮詢——透過生日密碼解讀戀愛藍圖，找到屬於妳的幸福。',
+  },
+};
 
 const BASE10 = '/images/original/shesay.com/wp-content/uploads/2023/10/';
 

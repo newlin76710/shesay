@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
+
+export const metadata: Metadata = {
+  title: '聯誼派對',
+  description: 'SheSay 聯誼派對活動——娛樂遊戲、美食饗宴、手作體驗、戶外運動等多種主題，讓單身男女自然互動。',
+  openGraph: {
+    title: '聯誼派對 — SheSay',
+    description: 'SheSay 聯誼派對——娛樂遊戲、美食饗宴、手作體驗等多種主題，讓單身男女自然互動。',
+  },
+};
 
 const BASE = '/images/original/shesay.com/wp-content/uploads/2023/11/';
 

@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
+
+export const metadata: Metadata = {
+  title: '戀愛會社',
+  description: 'SheSay 戀愛會社節目——娜米老師直播解析戀愛數字密碼，免費參加，幫妳解答感情困擾。',
+  openGraph: {
+    title: '戀愛會社 — SheSay',
+    description: 'SheSay 戀愛會社節目——娜米老師直播解析戀愛數字密碼，免費參加。',
+  },
+};
 import { FadeIn } from '@/components/fade-in';
 import { VideoSwiper } from '@/components/video-swiper';
 import { loveokArticles } from '@/lib/loveok-articles';

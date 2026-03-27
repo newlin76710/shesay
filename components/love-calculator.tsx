@@ -24,10 +24,32 @@ function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date
   const [birthYear, setBirthYear] = useState('');
   const [birthMonth, setBirthMonth] = useState('');
   const [birthDay, setBirthDay] = useState('');
+  const [errors, setErrors] = useState<string[]>([]);
+  const [touched, setTouched] = useState(false);
 
   const canSubmit = name.trim() && birthYear && birthMonth && birthDay;
   const buildDate = () =>
     `${birthYear}-${birthYear ? birthMonth.padStart(2, '0') : ''}-${birthYear ? birthDay.padStart(2, '0') : ''}`;
+
+  const validate = () => {
+    const errs: string[] = [];
+    if (!name.trim()) errs.push('請輸入姓名');
+    if (!birthYear || !birthMonth || !birthDay) errs.push('請選擇完整的生日');
+    if (birthYear && birthMonth && birthDay) {
+      const d = new Date(Number(birthYear), Number(birthMonth) - 1, Number(birthDay));
+      if (d > new Date()) errs.push('生日不能是未來日期');
+    }
+    return errs;
+  };
+
+  const handleSubmit = () => {
+    setTouched(true);
+    const errs = validate();
+    setErrors(errs);
+    if (errs.length === 0) {
+      onSubmit(name, gender, buildDate());
+    }
+  };
 
   return (
     <div className="mx-auto w-full max-w-md">
@@ -116,10 +138,17 @@ function InputForm({ onSubmit }: { onSubmit: (name: string, gender: string, date
           </div>
         </div>
 
+        {touched && errors.length > 0 && (
+          <div className="mb-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600" role="alert">
+            {errors.map((err, i) => (
+              <p key={i}>{err}</p>
+            ))}
+          </div>
+        )}
+
         <button
           type="button"
-          disabled={!canSubmit}
-          onClick={() => onSubmit(name, gender, buildDate())}
+          onClick={handleSubmit}
           className={`w-full rounded-full py-3.5 text-sm font-bold text-white shadow-md transition ${
             canSubmit
               ? 'bg-rose hover:opacity-90 active:scale-[0.98]'

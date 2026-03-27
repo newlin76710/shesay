@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
+
+export const metadata: Metadata = {
+  title: '廣告合作',
+  description: 'SheSay 擁有超過 15 萬粉絲與多元品牌資源，歡迎洽談廣告合作、品牌聯名與活動贊助。',
+  openGraph: {
+    title: '廣告合作 — SheSay',
+    description: 'SheSay 擁有超過 15 萬粉絲與多元品牌資源，歡迎洽談廣告合作與活動贊助。',
+  },
+};
 
 const BASE10 = '/images/original/shesay.com/wp-content/uploads/2023/10/';
 const BASE11 = '/images/original/shesay.com/wp-content/uploads/2023/11/';

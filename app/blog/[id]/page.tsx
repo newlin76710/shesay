@@ -11,7 +11,17 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const article = articles[id];
   if (!article) return {};
-  return { title: `${article.title} — SheSay` };
+  const firstText = article.content.find((b: { type: string }) => b.type === 'text');
+  const desc = firstText ? (firstText.value as string).slice(0, 120) + '...' : article.title;
+  return {
+    title: `${article.title} — SheSay`,
+    description: desc,
+    openGraph: {
+      title: `${article.title} — SheSay`,
+      description: desc,
+      ...(article.heroImage ? { images: [article.heroImage] } : {}),
+    },
+  };
 }
 
 export default async function BlogPage({ params }: { params: Promise<{ id: string }> }) {
