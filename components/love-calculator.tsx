@@ -141,7 +141,7 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
     <div className="mx-auto w-full max-w-[576px] px-2 sm:px-0">
       {/* 卡片圖片容器 — 只顯示上方卡片部分，裁切底部按鈕 */}
       <div className="relative overflow-hidden rounded-2xl shadow-soft sm:rounded-3xl">
-        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/16.2' }}>
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/17.2' }}>
           <Image
             src={cardSrc}
             alt={`主命數 ${result.mainNumber} 結果卡`}

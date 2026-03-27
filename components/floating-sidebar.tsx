@@ -3,10 +3,15 @@
 import Link from 'next/link';
 
 export function FloatingSidebar() {
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-0">
       <Link
         href="/consult"
+        onClick={handleClick}
         className="flex items-center justify-center rounded-l-lg bg-rose px-2 py-4 shadow-lg transition hover:bg-rose/90"
         style={{ writingMode: 'vertical-rl' }}
       >
@@ -14,6 +19,7 @@ export function FloatingSidebar() {
       </Link>
       <Link
         href="/podcast"
+        onClick={handleClick}
         className="flex items-center justify-center rounded-l-lg bg-plum px-2 py-4 shadow-lg transition hover:bg-plum/90"
         style={{ writingMode: 'vertical-rl' }}
       >
