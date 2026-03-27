@@ -155,7 +155,7 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
           <div
             className="absolute flex items-center"
             style={{
-              top: '12.9%',
+              top: '12.2%',
               left: '8%',
               width: '22%',
               height: '2.8%',
