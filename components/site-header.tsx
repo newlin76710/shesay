@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 
 const navItems = [
@@ -19,13 +18,11 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-10">
         {/* Logo */}
         <a href="/" className="relative block h-10 w-[132px] shrink-0 sm:h-12 sm:w-[158px]">
-          <Image
+          <img
             src="/images/original/shesay.com/wp-content/uploads/2025/05/shesay-logo-01.png"
             alt="SheSay"
-            fill
-            className="object-contain object-left"
-            sizes="158px"
-            priority
+            className="absolute inset-0 h-full w-full object-contain object-left"
+            loading="eager"
           />
         </a>
 

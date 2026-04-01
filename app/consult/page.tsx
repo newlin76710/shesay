@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {
@@ -99,13 +98,11 @@ export default function ConsultPage() {
 
         {/* Section 1 — Hero Banner (純圖片，無疊字) */}
         <div className="w-full">
-          <Image
+          <img
             src={BASE10 + 'SheSay-戀愛數字密碼-banner-1-2048x758.jpg'}
             alt="SheSay 戀愛數字密碼諮詢"
-            width={1024}
-            height={379}
             className="w-full object-cover"
-            priority
+            loading="eager"
           />
         </div>
 
@@ -136,7 +133,7 @@ export default function ConsultPage() {
               >
                 <div className="flex justify-center">
                   <div className="relative h-24 w-24 overflow-hidden rounded-full">
-                    <Image src={s.img} alt={s.title} fill className="object-cover" sizes="96px" />
+                    <img src={s.img} alt={s.title} className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-[#54595F]">{s.title}</h3>

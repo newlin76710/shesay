@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const slides = [
@@ -37,13 +36,11 @@ export function BannerSlider() {
           tabIndex={i === current ? 0 : -1}
           className={`absolute inset-0 transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
-          <Image
+          <img
             src={slide.src}
             alt={slide.alt}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority={i === 0}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading={i === 0 ? 'eager' : 'lazy'}
           />
         </a>
       ))}

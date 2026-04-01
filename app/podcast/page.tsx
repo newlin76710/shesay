@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {
@@ -114,13 +113,11 @@ export default function PodcastPage() {
         {/* Hero Banner — 全寬 */}
         <section className="relative w-full">
           <div className="relative aspect-[2553/945] w-full">
-            <Image
+            <img
               src="/images/podcast-covers/banner.jpg"
               alt="戀愛會社節目"
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
             />
           </div>
         </section>
@@ -163,7 +160,7 @@ export default function PodcastPage() {
                 <FadeIn key={host.name}>
                   <article className="text-center">
                     <div className="relative mx-auto aspect-[4/5] w-full overflow-hidden rounded-2xl">
-                      <Image src={host.src} alt={host.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                      <img src={host.src} alt={host.name} className="absolute inset-0 h-full w-full object-cover" />
                     </div>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-rose">{host.role}</p>
                     <h3 className="mt-2 text-lg font-bold text-plum">{host.name}</h3>
@@ -186,7 +183,7 @@ export default function PodcastPage() {
                 <FadeIn key={f.title}>
                   <article className="text-center">
                     <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-2xl">
-                      <Image src={f.src} alt={f.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                      <img src={f.src} alt={f.title} className="absolute inset-0 h-full w-full object-cover" />
                     </div>
                     <h3 className="mt-4 text-lg font-bold text-plum">{f.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-plum/70">{f.desc}</p>
@@ -221,12 +218,10 @@ export default function PodcastPage() {
                   >
                     {item.heroImage && (
                       <div className="relative aspect-video overflow-hidden">
-                        <Image
+                        <img
                           src={item.heroImage}
                           alt={item.title}
-                          fill
-                          className="object-cover transition duration-300 group-hover:scale-105"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
                         />
                       </div>
                     )}

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 type ImageCardProps = {
   src: string;
@@ -11,7 +10,7 @@ export function ImageCard({ src, alt, title, description }: ImageCardProps) {
   return (
     <article className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white shadow-soft">
       <div className="relative aspect-[4/3]">
-        <Image src={src} alt={alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+        <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
       </div>
       {(title || description) ? (
         <div className="p-6">

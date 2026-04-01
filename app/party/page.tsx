@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {

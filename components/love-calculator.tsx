@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { calculateLoveNumber, type LoveNumberResult } from '@/lib/love-number';
 
 /* ─── 主命數 1-9 對應圖片路徑 ─── */
@@ -171,13 +170,11 @@ function ResultCard({ result, onBack }: { result: LoveNumberResult; onBack: () =
       {/* 卡片圖片容器 — 只顯示上方卡片部分，裁切底部按鈕 */}
       <div className="relative overflow-hidden rounded-2xl shadow-soft sm:rounded-3xl">
         <div className="relative w-full overflow-hidden" style={{ aspectRatio: '9/18.5' }}>
-          <Image
+          <img
             src={cardSrc}
             alt={`主命數 ${result.mainNumber} 結果卡`}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 640px) 100vw, 576px"
-            priority
+            className="absolute inset-0 h-full w-full object-cover object-top"
+            loading="eager"
           />
 
           {/* 覆蓋「小瀨」— 在姓名框內，用 % 定位自適應所有尺寸 */}

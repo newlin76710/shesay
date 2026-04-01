@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 type PageHeroProps = {
   eyebrow: string;
@@ -19,7 +18,7 @@ export function PageHero({ eyebrow, title, description, imageSrc, imageAlt }: Pa
         </div>
         {imageSrc ? (
           <div className="relative min-h-[280px] overflow-hidden rounded-[1.5rem] bg-sand">
-            <Image src={imageSrc} alt={imageAlt ?? title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 40vw" />
+            <img src={imageSrc} alt={imageAlt ?? title} className="absolute inset-0 h-full w-full object-cover" />
           </div>
         ) : null}
       </div>

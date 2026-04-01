@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 
 type Props = {
@@ -32,12 +31,10 @@ export function YouTubeCard({ videoId, title, thumbnail }: Props) {
       onClick={() => setPlaying(true)}
       className="group relative aspect-video w-full overflow-hidden rounded-2xl bg-black text-left"
     >
-      <Image
+      <img
         src={thumb}
         alt={title}
-        fill
-        className="object-cover transition duration-300 group-hover:scale-105"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
       />
       {/* Play button overlay */}
       <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition group-hover:bg-black/40">

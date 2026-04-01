@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { BannerSlider } from '@/components/banner-slider';
 import { CtaBanner } from '@/components/cta-banner';
 import { SiteShell } from '@/components/site-shell';

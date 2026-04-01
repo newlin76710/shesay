@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { SiteShell } from '@/components/site-shell';
 import { articles, type Article } from '@/lib/party-articles';
@@ -36,13 +35,11 @@ export default async function BlogPage({ params }: { params: Promise<{ id: strin
 
         {article.heroImage && (
           <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl">
-            <Image
+            <img
               src={article.heroImage}
               alt={article.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 768px"
-              priority
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
             />
           </div>
         )}
@@ -59,12 +56,10 @@ export default async function BlogPage({ params }: { params: Promise<{ id: strin
             if (block.type === 'image') {
               return (
                 <div key={i} className="relative aspect-video w-full overflow-hidden rounded-xl">
-                  <Image
+                  <img
                     src={block.value}
                     alt={article.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 768px"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
               );
