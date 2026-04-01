@@ -300,7 +300,7 @@ export default function ConsultPage() {
                   </p>
                   {/* Graphic */}
                   <div className="relative mt-4 w-full" style={{ aspectRatio: '2.7/1' }}>
-                    <Image src={t.graphic} alt={`${t.name} 戀愛數字`} fill className="object-contain" sizes="(max-width: 768px) 100vw, 33vw" />
+                    <img src={t.graphic} alt={`${t.name} 戀愛數字`} className="absolute inset-0 h-full w-full object-contain" />
                   </div>
                 </article>
               ))}

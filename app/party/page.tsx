@@ -141,13 +141,11 @@ export default function PartyPage() {
         {/* Hero */}
         <section>
           <a href="https://lin.ee/UtgCipOq" className="relative block w-full overflow-hidden aspect-[2553/945]">
-            <Image
+            <img
               src="/images/banners/banner-party.png"
               alt="聯誼派對活動"
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-              priority
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              loading="eager"
             />
           </a>
           {/* 錨點導航列 — 手機 4 欄 grid 換行，桌面橫排 */}
@@ -184,12 +182,10 @@ export default function PartyPage() {
                       className="group overflow-hidden rounded-xl bg-white shadow-soft transition hover:shadow-lg sm:rounded-2xl"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
-                        <Image
+                        <img
                           src={act.img}
                           alt={act.title}
-                          fill
-                          className="object-cover transition duration-300 group-hover:scale-105"
-                          sizes="(max-width: 640px) 50vw, 33vw"
+                          className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
                         />
                       </div>
                       <div className="p-3 sm:p-4">
@@ -214,7 +210,7 @@ export default function PartyPage() {
               {benefits.map((b) => (
                 <article key={b.title} className="flex flex-col items-center rounded-3xl bg-white p-8 text-center shadow-soft">
                   <div className="relative h-16 w-16">
-                    <Image src={b.icon} alt={b.title} fill className="object-contain" sizes="64px" />
+                    <img src={b.icon} alt={b.title} className="absolute inset-0 h-full w-full object-contain" />
                   </div>
                   <h3 className="mt-4 text-xl font-bold text-plum">{b.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-plum/70">{b.desc}</p>
@@ -250,12 +246,10 @@ export default function PartyPage() {
                 className="group overflow-hidden rounded-xl bg-white shadow-soft sm:rounded-2xl"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
+                  <img
                     src={f.img}
                     alt={f.title}
-                    fill
-                    className="object-cover transition duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, 20vw"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-2 sm:p-3">

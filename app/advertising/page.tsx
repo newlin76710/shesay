@@ -114,7 +114,7 @@ function ServiceList({ items }: { items: typeof services }) {
               <div className="mt-4 grid gap-3" style={{ gridTemplateColumns: `repeat(${item.cols || 3}, minmax(0, 1fr))` }}>
                 {item.gallery.map((src) => (
                   <div key={src} className="relative aspect-square overflow-hidden rounded-lg bg-[#f8f8f8]">
-                    <Image src={src} alt="" fill className="object-contain p-1" sizes="150px" />
+                    <img src={src} alt="" className="absolute inset-0 h-full w-full object-contain p-1" />
                   </div>
                 ))}
               </div>
@@ -123,7 +123,7 @@ function ServiceList({ items }: { items: typeof services }) {
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {item.images.map((src) => (
                   <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                    <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+                    <img src={src} alt="" className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -149,7 +149,7 @@ export default function AdvertisingPage() {
               </p>
             </div>
             <div className="relative aspect-[1000/709] w-full lg:w-1/2">
-              <Image src={BASE10 + '戀愛會社-小秘書-娜米-1.jpg'} alt="SheSay 廣告合作" fill className="rounded-2xl object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <img src={BASE10 + '戀愛會社-小秘書-娜米-1.jpg'} alt="SheSay 廣告合作" className="absolute inset-0 h-full w-full rounded-2xl object-cover" />
             </div>
           </div>
         </section>
@@ -161,7 +161,7 @@ export default function AdvertisingPage() {
             {brandIcons.map((b) => (
               <div key={b.name} className="flex flex-col items-center rounded-2xl bg-white p-5 text-center shadow-soft transition hover:translate-y-1">
                 <div className="relative h-16 w-16">
-                  <Image src={b.icon} alt={b.name} fill className="object-contain" sizes="64px" />
+                  <img src={b.icon} alt={b.name} className="absolute inset-0 h-full w-full object-contain" />
                 </div>
                 <p className="mt-3 text-sm font-bold text-plum">{b.name}</p>
                 <p className="mt-1 text-xs text-[#54595F]/70">{b.tag}</p>
@@ -179,7 +179,7 @@ export default function AdvertisingPage() {
               {coreValues.map((v) => (
                 <div key={v.title} className="flex flex-col items-center rounded-2xl bg-white p-5 text-center shadow-soft transition hover:translate-y-1">
                   <div className="relative h-14 w-14">
-                    <Image src={v.icon} alt={v.title} fill className="object-contain" sizes="56px" />
+                    <img src={v.icon} alt={v.title} className="absolute inset-0 h-full w-full object-contain" />
                   </div>
                   <p className="mt-3 text-xs font-bold text-plum">{v.title}</p>
                 </div>

@@ -126,7 +126,7 @@ function TabSheSay() {
           {channels.map((ch) => (
             <div key={ch.name} className="text-center">
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-white shadow-soft">
-                <Image src={ch.img} alt={ch.name} fill className="object-contain p-1" sizes="(max-width: 640px) 50vw, 120px" />
+                <img src={ch.img} alt={ch.name} className="absolute inset-0 h-full w-full object-contain p-1" />
               </div>
               <p className="mt-1 text-xs text-plum/70">{ch.name}</p>
             </div>
@@ -144,7 +144,7 @@ function TabSheSay() {
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[BASE11 + 'b拷貝3.jpg', BASE11 + 'a-1.jpg', BASE11 + 'c拷貝.jpg', BASE11 + 'd拷貝-1.jpg'].map((src) => (
             <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-soft">
-              <Image src={src} alt="養個男人來消遣" fill className="object-cover" sizes="(max-width: 640px) 50vw, 25vw" />
+              <img src={src} alt="養個男人來消遣" className="absolute inset-0 h-full w-full object-cover" />
             </div>
           ))}
         </div>
@@ -170,7 +170,7 @@ function TabSheSay() {
           {celebrities.map((name) => (
             <div key={name} className="text-center">
               <div className="relative aspect-square overflow-hidden rounded-lg shadow-soft">
-                <Image src={BASE11 + '正方－' + name + '.jpg'} alt={name} fill className="object-cover" sizes="80px" />
+                <img src={BASE11 + '正方－' + name + '.jpg'} alt={name} className="absolute inset-0 h-full w-full object-cover" />
               </div>
               <p className="mt-1 text-[10px] text-plum/60">{name}</p>
             </div>
@@ -209,10 +209,10 @@ function TabChatroom() {
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="relative aspect-[1024/424] overflow-hidden rounded-lg shadow-soft">
-          <Image src={BASE10 + '截圖-2023-10-11-上午11.33.50-1024x424.png'} alt="尋夢園聊天室" fill className="object-cover" sizes="50vw" />
+          <img src={BASE10 + '截圖-2023-10-11-上午11.33.50-1024x424.png'} alt="尋夢園聊天室" className="absolute inset-0 h-full w-full object-cover" />
         </div>
         <div className="relative aspect-[2048/1208] overflow-hidden rounded-lg shadow-soft">
-          <Image src={BASE11 + '截圖-2023-11-14-上午10.25.03-2048x1208.jpg'} alt="尋夢園聊天室" fill className="object-cover" sizes="50vw" />
+          <img src={BASE11 + '截圖-2023-11-14-上午10.25.03-2048x1208.jpg'} alt="尋夢園聊天室" className="absolute inset-0 h-full w-full object-cover" />
         </div>
       </div>
       <a href="https://ek21.com/" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">前往尋夢園聊天室</a>
@@ -250,7 +250,7 @@ function TabNews() {
       </p>
       <h4 className="font-bold text-plum">廣而深的分眾經營，精準投遞目標客群</h4>
       <div className="relative aspect-[1024/550] overflow-hidden rounded-lg shadow-soft">
-        <Image src={BASE11 + '截圖-2023-11-14-上午10.33.32-2048x1100.png'} alt="尋夢新聞受眾" fill className="object-cover" sizes="100vw" />
+        <img src={BASE11 + '截圖-2023-11-14-上午10.33.32-2048x1100.png'} alt="尋夢新聞受眾" className="absolute inset-0 h-full w-full object-cover" />
       </div>
       <a href="https://ek21.com/news/" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">前往尋夢新聞</a>
     </div>
@@ -275,7 +275,7 @@ function TabEros() {
         會員只要選擇喜歡的活動，和喜歡對象的類型，系統就會自動推薦適合的活動和場次。
       </p>
       <div className="relative aspect-[1024/842] max-w-2xl overflow-hidden rounded-lg shadow-soft">
-        <Image src={BASE11 + '截圖-2023-11-14-上午10.36.24-2048x1685.jpg'} alt="eros主題派對" fill className="object-cover" sizes="100vw" />
+        <img src={BASE11 + '截圖-2023-11-14-上午10.36.24-2048x1685.jpg'} alt="eros主題派對" className="absolute inset-0 h-full w-full object-cover" />
       </div>
       <a href="https://eros.ek21.com" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full bg-rose px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">前往eros主題派對</a>
     </div>
@@ -287,7 +287,7 @@ function TabNami() {
     <div className="space-y-8">
       <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="relative aspect-[768/811] overflow-hidden rounded-2xl shadow-soft">
-          <Image src={BASE10 + 'RYN00597-新聞稿用-scaled-e1696996358120-768x811.jpg'} alt="娜米老師" fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 40vw" />
+          <img src={BASE10 + 'RYN00597-新聞稿用-scaled-e1696996358120-768x811.jpg'} alt="娜米老師" className="absolute inset-0 h-full w-full object-cover object-top" />
         </div>
         <div>
           <h3 className="text-2xl font-bold text-plum">戀愛小秘書 娜米 最專業的紅娘</h3>
@@ -371,7 +371,7 @@ export default function AboutPage() {
                 }`}
               >
                 <div className="relative h-10 w-10 sm:h-20 sm:w-20">
-                  <Image src={tab.icon} alt="" fill className="object-contain" sizes="(max-width: 640px) 40px, 80px" />
+                  <img src={tab.icon} alt="" className="absolute inset-0 h-full w-full object-contain" />
                 </div>
                 <span className="text-[10px] leading-tight sm:text-sm">{tab.label}</span>
               </button>
@@ -399,7 +399,7 @@ export default function AboutPage() {
                   className="flex flex-col items-center rounded-2xl bg-white p-4 text-center shadow-soft transition hover:-translate-y-1 sm:p-6"
                 >
                   <div className="relative h-12 w-12 sm:h-20 sm:w-20">
-                    <Image src={tab.icon} alt={tab.label} fill className="object-contain" sizes="(max-width: 640px) 48px, 80px" />
+                    <img src={tab.icon} alt={tab.label} className="absolute inset-0 h-full w-full object-contain" />
                   </div>
                   <p className="mt-2 text-xs font-bold text-plum sm:mt-3 sm:text-sm">{tab.label}</p>
                 </button>

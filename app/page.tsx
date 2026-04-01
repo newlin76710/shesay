@@ -180,7 +180,7 @@ export default function HomePage() {
             {events.map((item) => (
               <a key={item.title} href="https://lin.ee/UtgCipOq" className="group overflow-hidden rounded-2xl bg-white shadow-soft transition hover:shadow-lg">
                 <div className="relative aspect-[3/2] overflow-hidden">
-                  <Image src={item.img} alt={item.title} fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 33vw" />
+                  <img src={item.img} alt={item.title} className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
                 </div>
                 <div className="p-5">
                   <h3 className="text-sm font-bold text-plum">{item.title}</h3>
@@ -206,7 +206,7 @@ export default function HomePage() {
                   <p className="mt-4 text-sm leading-7 text-plum/80">{t.quote}</p>
                   <div className="mt-5 flex items-center gap-3">
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
-                      <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="48px" />
+                      <img src={t.avatar} alt={t.name} className="absolute inset-0 h-full w-full object-cover" />
                     </div>
                     <div>
                       <p className="font-bold text-plum">{t.name}</p>
@@ -228,7 +228,7 @@ export default function HomePage() {
             {/* 左側：娜米照片 + 按鈕 */}
             <div>
               <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-[2rem] shadow-soft">
-                <Image src={BASE10 + 'WechatIMG323拷貝2-scaled.jpg'} alt="戀愛小秘書娜米" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
+                <img src={BASE10 + 'WechatIMG323拷貝2-scaled.jpg'} alt="戀愛小秘書娜米" className="absolute inset-0 h-full w-full object-cover" />
               </div>
               <div className="mt-6 space-y-2 text-center text-sm leading-7 text-plum/75">
                 <p>了解戀愛數字密碼 ⬇️</p>
@@ -261,7 +261,7 @@ export default function HomePage() {
               </div>
               <h3 className="mt-8 text-2xl font-bold text-plum">解讀生命密碼<br />展開戀愛藍圖</h3>
               <div className="relative mt-8 aspect-square w-full max-w-sm overflow-hidden rounded-[2rem] shadow-soft">
-                <Image src={BASE09 + '數字1-1024x1024.jpg'} alt="戀愛數字密碼" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 40vw" />
+                <img src={BASE09 + '數字1-1024x1024.jpg'} alt="戀愛數字密碼" className="absolute inset-0 h-full w-full object-cover" />
               </div>
             </div>
           </div>
@@ -281,12 +281,12 @@ export default function HomePage() {
                       <p className="text-xs text-plum/60">{t.meta}</p>
                     </div>
                     <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
-                      <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="56px" />
+                      <img src={t.avatar} alt={t.name} className="absolute inset-0 h-full w-full object-cover" />
                     </div>
                   </div>
                   <p className="mt-4 text-sm leading-7 text-plum/80">{t.quote}</p>
                   <div className="relative mt-4 w-full" style={{ aspectRatio: '2.7/1' }}>
-                    <Image src={t.graphic} alt={`${t.name} 戀愛數字`} fill className="object-contain" sizes="33vw" />
+                    <img src={t.graphic} alt={`${t.name} 戀愛數字`} className="absolute inset-0 h-full w-full object-contain" />
                   </div>
                 </article>
               ))}
@@ -303,7 +303,7 @@ export default function HomePage() {
               {products.map((item) => (
                 <div key={item.name} className="overflow-hidden rounded-2xl bg-white shadow-soft">
                   <div className="relative aspect-square w-full overflow-hidden">
-                    <Image src={item.img} alt={`${item.name} - ${item.sub}`} fill className="object-cover" sizes="(max-width: 640px) 33vw, 20vw" />
+                    <img src={item.img} alt={`${item.name} - ${item.sub}`} className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                   <div className="p-4 text-center">
                     <p className="text-sm font-semibold text-plum">{item.name}</p>
