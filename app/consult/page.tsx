@@ -147,11 +147,9 @@ export default function ConsultPage() {
         <div className="mx-auto max-w-4xl px-6 py-10 sm:px-8">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
             <div className="w-full lg:w-[40%]">
-              <Image
+              <img
                 src={BASE10 + 'RYN00597-新聞稿用-scaled-e1696996358120-768x811.jpg'}
                 alt="娜米老師"
-                width={768}
-                height={811}
                 className="w-full rounded-2xl object-cover"
               />
             </div>
@@ -293,7 +291,7 @@ export default function ConsultPage() {
                       <p className="text-xs text-[#54595F]/70">{t.meta}</p>
                     </div>
                     <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
-                      <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="56px" />
+                      <img src={t.avatar} alt={t.name} className="absolute inset-0 h-full w-full object-cover" />
                     </div>
                   </div>
                   {/* Quote */}
