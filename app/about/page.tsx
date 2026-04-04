@@ -19,7 +19,7 @@ const brandLinks = [
   { href: 'https://ek21.com/', label: '尋夢園聊天室', icon: BASE10 + 'abouticon-1.png', external: true },
   { href: 'https://ek21.com/news/', label: '尋夢新聞', icon: BASE10 + 'abouticon-2.png', external: true },
   { href: 'https://eros.ek21.com', label: 'eros主題派對', icon: BASE10 + 'abouticon-3.png', external: true },
-  { href: 'https://lin.ee/o4lCgwJ', label: '戀愛小秘書娜米', icon: BASE10 + 'abouticon-4.png', external: true },
+  { href: 'https://ek21.com/dating/', label: '戀愛小秘書娜米', icon: BASE10 + 'abouticon-4.png', external: true },
   { href: 'https://www.rainbownumen.org/', label: '彩虹數字', icon: BASE10 + 'ep2-04-生日的彩虹數字-300x168.jpg', external: true },
 ];
 
