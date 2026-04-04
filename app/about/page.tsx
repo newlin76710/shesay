@@ -14,6 +14,15 @@ const tabs = [
   { id: 'nami', label: '戀愛小秘書娜米', icon: BASE10 + 'abouticon-4.png' },
 ];
 
+const brandLinks = [
+  { href: 'https://shesay.com', label: 'SheSay', icon: BASE10 + 'abouticon-5.png', external: false },
+  { href: 'https://ek21.com/', label: '尋夢園聊天室', icon: BASE10 + 'abouticon-1.png', external: true },
+  { href: 'https://ek21.com/news/', label: '尋夢新聞', icon: BASE10 + 'abouticon-2.png', external: true },
+  { href: 'https://eros.ek21.com', label: 'eros主題派對', icon: BASE10 + 'abouticon-3.png', external: true },
+  { href: 'https://lin.ee/o4lCgwJ', label: '戀愛小秘書娜米', icon: BASE10 + 'abouticon-4.png', external: true },
+  { href: 'https://www.rainbownumen.org/', label: '彩虹數字', icon: BASE10 + 'ep2-04-生日的彩虹數字-300x168.jpg', external: true },
+];
+
 const channels = [
   { name: '愛情醫學院', img: BASE11 + '12.17.png' },
   { name: '哈日浪潮', img: BASE11 + '12.04.png' },
@@ -388,21 +397,23 @@ export default function AboutPage() {
           {activeTab === 'nami' && <TabNami />}
         </section>
 
-        {/* Bottom Brand Nav — 手機 2 欄換行，桌面 5 欄 */}
+        {/* Bottom Brand Nav — 手機 2 欄換行，桌面 6 欄 */}
         <section className="bg-white/70 py-8 sm:py-12">
           <div className="mx-auto max-w-5xl px-4 sm:px-8">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 sm:gap-4">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => switchTab(tab.id)}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 sm:gap-4">
+              {brandLinks.map((brand) => (
+                <a
+                  key={brand.href}
+                  href={brand.href}
+                  target={brand.external ? '_blank' : undefined}
+                  rel={brand.external ? 'noopener noreferrer' : undefined}
                   className="flex flex-col items-center rounded-2xl bg-white p-4 text-center shadow-soft transition hover:-translate-y-1 sm:p-6"
                 >
                   <div className="relative h-12 w-12 sm:h-20 sm:w-20">
-                    <img src={tab.icon} alt={tab.label} className="absolute inset-0 h-full w-full object-contain" />
+                    <img src={brand.icon} alt={brand.label} className="absolute inset-0 h-full w-full object-contain" />
                   </div>
-                  <p className="mt-2 text-xs font-bold text-plum sm:mt-3 sm:text-sm">{tab.label}</p>
-                </button>
+                  <p className="mt-2 text-xs font-bold text-plum sm:mt-3 sm:text-sm">{brand.label}</p>
+                </a>
               ))}
             </div>
           </div>
