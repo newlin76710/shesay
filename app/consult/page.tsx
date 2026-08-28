@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {
-  title: '戀愛諮詢',
-  description: 'SheSay 戀愛數字密碼諮詢——透過生日密碼解讀戀愛藍圖，預約娜米老師一對一諮詢，找到屬於妳的幸福。',
+  title: '戀愛諮詢｜戀愛數字密碼算命',
+  description: 'SheSay 戀愛數字密碼諮詢——結合算命與心理學，透過生日密碼解讀戀愛藍圖，預約娜米老師一對一戀愛諮詢，找到屬於妳的幸福。',
+  keywords: ['戀愛諮詢', '算命', '戀愛數字密碼', '彩虹數字', '紅娘', '交友', '感情諮詢'],
   openGraph: {
-    title: '戀愛諮詢 — SheSay',
-    description: 'SheSay 戀愛數字密碼諮詢——透過生日密碼解讀戀愛藍圖，找到屬於妳的幸福。',
+    title: '戀愛諮詢｜戀愛數字密碼算命 — SheSay',
+    description: 'SheSay 戀愛數字密碼諮詢——結合算命與心理學，透過生日密碼解讀戀愛藍圖，找到屬於妳的幸福。',
   },
 };
 

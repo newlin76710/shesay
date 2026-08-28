@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {
-  title: '戀愛會社',
-  description: 'SheSay 戀愛會社節目——娜米老師直播解析戀愛數字密碼，免費參加，幫妳解答感情困擾。',
+  title: '戀愛會社｜紅娘娜米的彩虹數字算命節目',
+  description: 'SheSay 戀愛會社節目——由會算命的紅娘娜米主持，直播用彩虹數字解析戀愛密碼，免費參加，幫妳解答感情困擾。',
+  keywords: ['戀愛', '算命', '彩虹數字', '紅娘', '戀愛數字密碼', '戀愛節目'],
   openGraph: {
-    title: '戀愛會社 — SheSay',
-    description: 'SheSay 戀愛會社節目——娜米老師直播解析戀愛數字密碼，免費參加。',
+    title: '戀愛會社｜紅娘娜米的彩虹數字算命節目 — SheSay',
+    description: 'SheSay 戀愛會社節目——由會算命的紅娘娜米主持，直播用彩虹數字解析戀愛密碼，免費參加。',
   },
 };
 import { FadeIn } from '@/components/fade-in';

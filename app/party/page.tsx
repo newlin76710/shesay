@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {
-  title: '聯誼派對',
-  description: 'SheSay 聯誼派對活動——娛樂遊戲、美食饗宴、手作體驗、戶外運動等多種主題，讓單身男女自然互動。',
+  title: '聯誼派對｜台北新竹台中台南高雄交友活動',
+  description: 'SheSay 交友聯誼派對活動——台北、新竹、台中、台南、高雄皆有場次，娛樂遊戲、美食饗宴、手作體驗、戶外運動等多種主題，讓單身男女自然互動、輕鬆交友。',
+  keywords: ['交友', '聯誼派對', '單身聯誼', '交友活動', '台北聯誼', '新竹聯誼', '台中聯誼', '台南聯誼', '高雄聯誼'],
   openGraph: {
-    title: '聯誼派對 — SheSay',
-    description: 'SheSay 聯誼派對——娛樂遊戲、美食饗宴、手作體驗等多種主題，讓單身男女自然互動。',
+    title: '聯誼派對｜台北新竹台中台南高雄交友活動 — SheSay',
+    description: 'SheSay 交友聯誼派對——台北、新竹、台中、台南、高雄皆有場次，娛樂遊戲、美食饗宴、手作體驗等多種主題，讓單身男女自然互動、輕鬆交友。',
   },
 };
 
