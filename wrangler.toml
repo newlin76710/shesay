@@ -1,8 +1,9 @@
 name = "shesay"
-main = ".open-next/worker.js"
 compatibility_date = "2026-05-28"
-compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
+# 純靜態網站（next build 的 output: 'export'，輸出在 out/），由 Workers Static Assets 直接回應，
+# 沒有 Worker 程式，請求不計入 Worker 請求數
 [assets]
-directory = ".open-next/assets"
-binding = "ASSETS"
+directory = "./out"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"

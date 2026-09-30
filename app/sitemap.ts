@@ -1,4 +1,7 @@
 import type { MetadataRoute } from 'next';
+
+// 靜態輸出（output: 'export'）時在建置階段產生
+export const dynamic = 'force-static';
 import { articles } from '@/lib/party-articles';
 import { loveokArticles } from '@/lib/loveok-articles';
 
